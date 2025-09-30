@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Statement Analysis</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="glassy-header">
+        <h1>Financial Analysis</h1>
+    </header>
+    <main>
+        <section id="income-statement">
+            <div class="t-account-container">
+                <div class="t-account">
+                    <div class="t-account-header">
+                        <span>Trading Account</span>
+                    </div>
+                    <div class="t-account-body">
+                        <div class="t-account-side t-account-debit">
+                            <h3>Debit (Dr.)</h3>
+                            <label>Opening Stock <input type="number" id="openingStock" value="0"></label>
+                            <label>Purchases <input type="number" id="purchases" value="0"></label>
+                            <label>Purchase Returns <input type="number" id="purchaseReturns" value="0"></label>
+                            <label>Direct Wages <input type="number" id="directWages" value="0"></label>
+                            <label>Carriage Inwards <input type="number" id="carriageInwards" value="0"></label>
+                            <label>Power & Fuel <input type="number" id="powerFuel" value="0"></label>
+                            <label>Other Direct Expenses <input type="number" id="otherDirectExpenses" value="0"></label>
+                            <div class="computed-term direct-expenses">
+                                <span>Total Direct Expenses</span>
+                                <input type="number" id="totalDirectExpenses" value="0" readonly>
+                            </div>
+                            <div class="computed-term net-purchases">
+                                <span>Net Purchases</span>
+                                <input type="number" id="netPurchases" value="0" readonly>
+                            </div>
+                        </div>
+                        <div class="t-account-side t-account-credit">
+                            <h3>Credit (Cr.)</h3>
+                            <label>Sales <input type="number" id="sales" value="0"></label>
+                            <label>Sales Returns <input type="number" id="salesReturns" value="0"></label>
+                            <label>Closing Stock <input type="number" id="closingStock" value="0"></label>
+                            <div class="computed-term net-sales">
+                                <span>Net Sales</span>
+                                <input type="number" id="netSales" value="0" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="computed-term cogs">
+                        <span>Cost of Goods Sold (COGS)</span>
+                        <input type="number" id="cogs" value="0" readonly>
+                    </div>
+                    <div class="computed-term gross-profit">
+                        <span>Gross Profit</span>
+                        <input type="number" id="grossProfit" value="0" readonly>
+                    </div>
+                </div>
+                <div class="t-account">
+                    <div class="t-account-header">
+                        <span>Profit & Loss Account</span>
+                    </div>
+                    <div class="t-account-body">
+                        <div class="t-account-side t-account-debit">
+                            <h3>Debit (Dr.)</h3>
+                            <label>Salaries <input type="number" id="salaries" value="0"></label>
+                            <label>Rent, Rates & Taxes <input type="number" id="rent" value="0"></label>
+                            <label>Printing & Stationery <input type="number" id="printingStationery" value="0"></label>
+                            <label>Depreciation <input type="number" id="depreciation" value="0"></label>
+                            <label>Insurance <input type="number" id="insurance" value="0"></label>
+                            <label>Postage & Telephone <input type="number" id="postageTelephone" value="0"></label>
+                            <label>Advertising & Selling Expenses <input type="number" id="advertisingSelling" value="0"></label>
+                            <label>Carriage Outwards <input type="number" id="carriageOutwards" value="0"></label>
+                            <label>Discount Allowed <input type="number" id="discountAllowed" value="0"></label>
+                            <label>Bad Debts <input type="number" id="badDebts" value="0"></label>
+                            <label>Provision for Doubtful Debts <input type="number" id="provisionDoubtfulDebts" value="0"></label>
+                            <label>Interest Paid <input type="number" id="interestPaid" value="0"></label>
+                            <label>Other Indirect Expenses <input type="number" id="otherIndirectExpenses" value="0"></label>
+                            <div class="computed-term indirect-expenses">
+                                <span>Total Indirect Expenses</span>
+                                <input type="number" id="totalIndirectExpenses" value="0" readonly>
+                            </div>
+                        </div>
+                        <div class="t-account-side t-account-credit">
+                            <h3>Credit (Cr.)</h3>
+                            <label>Discount Received <input type="number" id="discountReceived" value="0"></label>
+                            <label>Commission Received <input type="number" id="commissionReceived" value="0"></label>
+                            <label>Interest Received <input type="number" id="interestReceived" value="0"></label>
+                            <label>Dividend Income <input type="number" id="dividendIncome" value="0"></label>
+                            <label>Rent Received <input type="number" id="rentReceived" value="0"></label>
+                            <label>Other Incomes <input type="number" id="otherIncomes" value="0"></label>
+                        </div>
+                    </div>
+                    <div class="computed-term operating-profit">
+                        <span>Operating Profit</span>
+                        <input type="number" id="operatingProfit" value="0" readonly>
+                    </div>
+                    <div class="computed-term net-profit">
+                        <span>Net Profit</span>
+                        <input type="number" id="netProfit" value="0" readonly>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem;">
+                <button id="analyseBtn" class="button">Analyse Income Statement</button>
+            </div>
+        </section>
+        <!-- Add this after your income statement section, as a new dashboard page -->
+        <section id="dashboard" style="display:none;">
+            <h2 style="text-align:center; margin-top:2rem;">Financial Dashboard</h2>
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Net Sales</h3>
+                    <div id="dashNetSales" class="dashboard-value"></div>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Net Purchases</h3>
+                    <div id="dashNetPurchases" class="dashboard-value"></div>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Total Direct Expenses</h3>
+                    <div id="dashTotalDirectExpenses" class="dashboard-value"></div>
+                </div>
+                <div class="dashboard-card">
+                    <h3>COGS</h3>
+                    <div id="dashCOGS" class="dashboard-value"></div>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Gross Profit</h3>
+                    <div id="dashGrossProfit" class="dashboard-value"></div>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Total Indirect Expenses</h3>
+                    <div id="dashTotalIndirectExpenses" class="dashboard-value"></div>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Operating Profit</h3>
+                    <div id="dashOperatingProfit" class="dashboard-value"></div>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Net Profit</h3>
+                    <div id="dashNetProfit" class="dashboard-value"></div>
+                </div>
+            </div>
+            <h2 style="text-align:center; margin-top:2rem;">Profitability Ratios</h2>
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Gross Profit Ratio</h3>
+                    <div id="dashGrossProfitRatio" class="dashboard-value"></div>
+                    <div id="dashGrossProfitRatioAnalysis" class="dashboard-analysis"></div>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Operating Profit Ratio</h3>
+                    <div id="dashOperatingProfitRatio" class="dashboard-value"></div>
+                    <div id="dashOperatingProfitRatioAnalysis" class="dashboard-analysis"></div>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Net Profit Ratio</h3>
+                    <div id="dashNetProfitRatio" class="dashboard-value"></div>
+                    <div id="dashNetProfitRatioAnalysis" class="dashboard-analysis"></div>
+                </div>
+            </div>
+            <div style="text-align:center; margin:2rem;">
+                <button id="backBtn" class="button">Back</button>
+            </div>
+        </section>
+        
+        <section id="balance-sheet" style="margin-top:2rem;">
+            <h2 style="text-align:center;">Balance Sheet</h2>
+            <div class="balance-sheet-frame">
+                <div class="balance-sheet-t">
+                    <!-- Liabilities & Equity Side -->
+                    <div class="balance-sheet-side liabilities">
+                        <h3>Liabilities & Equity</h3>
+                        <div class="bs-category capital">
+                            <div class="bs-category-title">Capital & Reserves</div>
+                            <label>Capital <input type="number" id="bsCapital" value="0"></label>
+                            <label>Reserves & Surplus <input type="number" id="bsReserves" value="0"></label>
+                            <label>Drawings <input type="number" id="bsDrawings" value="0"></label>
+                            <div class="bs-subtotal" id="bsNetCapital">Net Capital: <span>0</span></div>
+                        </div>
+                        <div class="bs-category longterm">
+                            <div class="bs-category-title">Long-term Debts</div>
+                            <label>Debentures <input type="number" id="bsDebentures" value="0"></label>
+                            <label>Secured Loans <input type="number" id="bsSecuredLoans" value="0"></label>
+                            <label>Unsecured Loans <input type="number" id="bsUnsecuredLoans" value="0"></label>
+                            <div class="bs-subtotal" id="bsTotalLongterm">Total Long-term Debts: <span>0</span></div>
+                        </div>
+                        <div class="bs-category currentliab">
+                            <div class="bs-category-title">Current Liabilities</div>
+                            <label>Sundry Creditors <input type="number" id="bsCreditors" value="0"></label>
+                            <label>Bills Payable <input type="number" id="bsBillsPayable" value="0"></label>
+                            <label>Outstanding Expenses <input type="number" id="bsOutstandingExpenses" value="0"></label>
+                            <label>Bank Overdraft <input type="number" id="bsBankOverdraft" value="0"></label>
+                            <label>Short-term Loans <input type="number" id="bsShortTermLoans" value="0"></label>
+                            <label>Provision for Taxation <input type="number" id="bsProvisionTax" value="0"></label>
+                            <label>Other Current Liabilities <input type="number" id="bsOtherCurrentLiab" value="0"></label>
+                            <div class="bs-subtotal" id="bsTotalCurrentLiab">Total Current Liabilities: <span>0</span></div>
+                        </div>
+                    </div>
+                    <!-- Assets Side -->
+                    <div class="balance-sheet-side assets">
+                        <h3>Assets</h3>
+                        <div class="bs-category fixed">
+                            <div class="bs-category-title">Fixed Assets</div>
+                            <label>Land & Buildings <input type="number" id="bsLandBuildings" value="0"></label>
+                            <label>Plant & Machinery <input type="number" id="bsPlantMachinery" value="0"></label>
+                            <label>Furniture & Fixtures <input type="number" id="bsFurniture" value="0"></label>
+                            <label>Vehicles <input type="number" id="bsVehicles" value="0"></label>
+                            <label>Office Equipment <input type="number" id="bsOfficeEquip" value="0"></label>
+                            <label>Intangible Assets <input type="number" id="bsIntangible" value="0"></label>
+                            <label>Long-term Investments <input type="number" id="bsLongTermInvest" value="0"></label>
+                            <div class="bs-subtotal" id="bsTotalFixed">Total Fixed Assets: <span>0</span></div>
+                        </div>
+                        <div class="bs-category currentassets">
+                            <div class="bs-category-title">Current Assets</div>
+                            <label>Inventory (Closing Stock) <input type="number" id="bsInventory" value="0"></label>
+                            <label>Sundry Debtors <input type="number" id="bsDebtors" value="0"></label>
+                            <label>Bills Receivable <input type="number" id="bsBillsReceivable" value="0"></label>
+                            <label>Cash in Hand <input type="number" id="bsCashHand" value="0"></label>
+                            <label>Cash at Bank <input type="number" id="bsCashBank" value="0"></label>
+                            <label>Prepaid Expenses <input type="number" id="bsPrepaid" value="0"></label>
+                            <label>Accrued Income <input type="number" id="bsAccruedIncome" value="0"></label>
+                            <label>Short-term Investments <input type="number" id="bsShortTermInvest" value="0"></label>
+                            <div class="bs-subtotal" id="bsTotalCurrentAssets">Total Current Assets: <span>0</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bs-totals-row">
+                    <div class="bs-total-liab">
+                        <span>Total Liabilities & Equity</span>
+                        <input type="number" id="bsTotalLiabilities" value="0" readonly>
+                    </div>
+                    <div class="bs-total-assets">
+                        <span>Total Assets</span>
+                        <input type="number" id="bsTotalAssets" value="0" readonly>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 2rem;">
+                <button id="analyseBalanceSheetBtn" class="button">Analyse Balance Sheet</button>
+            </div>
+        </section>
+
+        <section id="liquidity-dashboard" style="display:none;">
+            <h2 style="text-align:center; margin-top:2rem;">Liquidity Ratios</h2>
+            <div class="liquidity-grid">
+                <div class="liquidity-card" id="currentRatioCard">
+                    <div class="liquidity-title">Current Ratio</div>
+                    <div class="liquidity-value" id="currentRatioValue"></div>
+                    <div class="liquidity-analysis" id="currentRatioAnalysis"></div>
+                </div>
+                <div class="liquidity-card" id="quickRatioCard">
+                    <div class="liquidity-title">Quick Ratio</div>
+                    <div class="liquidity-value" id="quickRatioValue"></div>
+                    <div class="liquidity-analysis" id="quickRatioAnalysis"></div>
+                </div>
+                <div class="liquidity-card" id="cashRatioCard">
+                    <div class="liquidity-title">Cash Ratio</div>
+                    <div class="liquidity-value" id="cashRatioValue"></div>
+                    <div class="liquidity-analysis" id="cashRatioAnalysis"></div>
+                </div>
+                <div class="liquidity-card" id="workingCapitalCard">
+                    <div class="liquidity-title">Working Capital</div>
+                    <div class="liquidity-value" id="workingCapitalValue"></div>
+                    <div class="liquidity-analysis" id="workingCapitalAnalysis"></div>
+                </div>
+                <div class="liquidity-card" id="inventoryWCcard">
+                    <div class="liquidity-title">Inventory to Working Capital Ratio</div>
+                    <div class="liquidity-value" id="inventoryWCValue"></div>
+                    <div class="liquidity-analysis" id="inventoryWCAnalysis"></div>
+                </div>
+            </div>
+            <h2 style="text-align:center; margin-top:2rem;">Solvency Ratios</h2>
+            <div class="solvency-grid">
+                <div class="solvency-card" id="debtEquityCard">
+                    <div class="solvency-title">Debt to Equity Ratio</div>
+                    <div class="solvency-value" id="debtEquityValue"></div>
+                    <div class="solvency-analysis" id="debtEquityAnalysis"></div>
+                </div>
+                <div class="solvency-card" id="debtRatioCard">
+                    <div class="solvency-title">Debt Ratio</div>
+                    <div class="solvency-value" id="debtRatioValue"></div>
+                    <div class="solvency-analysis" id="debtRatioAnalysis"></div>
+                </div>
+                <div class="solvency-card" id="proprietaryRatioCard">
+                    <div class="solvency-title">Proprietary Ratio</div>
+                    <div class="solvency-value" id="proprietaryRatioValue"></div>
+                    <div class="solvency-analysis" id="proprietaryRatioAnalysis"></div>
+                </div>
+                <div class="solvency-card" id="fixedAssetsRatioCard">
+                    <div class="solvency-title">Fixed Assets Ratio</div>
+                    <div class="solvency-value" id="fixedAssetsRatioValue"></div>
+                    <div class="solvency-analysis" id="fixedAssetsRatioAnalysis"></div>
+                </div>
+            </div>
+            <h2 style="text-align:center; margin-top:2rem;">Turnover Ratios</h2>
+            <div class="turnover-grid">
+                <div class="turnover-card">
+                    <div class="turnover-title">Fixed Assets Turnover Ratio</div>
+                    <div class="turnover-value" id="fixedAssetsTurnoverValue"></div>
+                    <div class="turnover-analysis" id="fixedAssetsTurnoverAnalysis"></div>
+                </div>
+                <div class="turnover-card">
+                    <div class="turnover-title">Working Capital Turnover Ratio</div>
+                    <div class="turnover-value" id="workingCapitalTurnoverValue"></div>
+                    <div class="turnover-analysis" id="workingCapitalTurnoverAnalysis"></div>
+                </div>
+                <div class="turnover-card">
+                    <div class="turnover-title">Capital Turnover Ratio</div>
+                    <div class="turnover-value" id="capitalTurnoverValue"></div>
+                    <div class="turnover-analysis" id="capitalTurnoverAnalysis"></div>
+                </div>
+                <div class="turnover-card">
+                    <div class="turnover-title">Creditors Turnover Ratio</div>
+                    <label>Cash Purchases <input type="number" id="cashPurchases" value="0"></label>
+                    <div class="turnover-value" id="creditorsTurnoverValue"></div>
+                    <div class="turnover-analysis" id="creditorsTurnoverAnalysis"></div>
+                    <div class="turnover-title">Average Payment Period (days)</div>
+                    <div class="turnover-value" id="avgPaymentPeriodValue"></div>
+                </div>
+                <div class="turnover-card">
+                    <div class="turnover-title">Debtors Turnover Ratio</div>
+                    <label>Cash Sales <input type="number" id="cashSales" value="0"></label>
+                    <div class="turnover-value" id="debtorsTurnoverValue"></div>
+                    <div class="turnover-analysis" id="debtorsTurnoverAnalysis"></div>
+                    <div class="turnover-title">Average Collection Period (days)</div>
+                    <div class="turnover-value" id="avgCollectionPeriodValue"></div>
+                </div>
+                <div class="turnover-card">
+                    <div class="turnover-title">Stock Turnover Ratio</div>
+                    <div class="turnover-value" id="stockTurnoverValue"></div>
+                    <div class="turnover-analysis" id="stockTurnoverAnalysis"></div>
+                    <div class="turnover-title">Average Age of Inventory (days)</div>
+                    <div class="turnover-value" id="avgAgeInventoryValue"></div>
+                </div>
+            </div>
+            <div style="text-align:center; margin:2rem;">
+                <button id="backLiquidityBtn" class="button">Back</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p style="text-align: center;">&copy; Made by Abhinav Raj (MBA F.T)</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
