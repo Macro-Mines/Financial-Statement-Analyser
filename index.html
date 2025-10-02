@@ -3,43 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <!-- Force desktop viewport and show message on small screens -->
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Financial Statement Analysis</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        @media (max-width: 900px) {
-            body > *:not(#desktop-only-message) {
-                display: none !important;
-            }
-            #desktop-only-message {
-                display: flex !important;
-            }
-        }
-        #desktop-only-message {
-            display: none;
-            min-height: 100vh;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            color: #e1f9fa;
-            background: #08023b;
-            text-align: center;
-            padding: 2em;
-            z-index: 9999;
-            position: fixed;
-            inset: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div id="desktop-only-message">
-        This website is only available in desktop mode.<br>
-        Please open on a device with a larger screen or turn on desktop mode in the browser settings.
+        <div class="desktop-message-box">
+            <div class="desktop-message-icon" aria-hidden="true">
+                <!-- Desktop SVG Icon -->
+                <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+                  <rect x="6" y="10" width="44" height="30" rx="4" fill="#4f8cff" fill-opacity="0.18"/>
+                  <rect x="10" y="14" width="36" height="22" rx="2" fill="#4f8cff"/>
+                  <rect x="18" y="40" width="20" height="4" rx="2" fill="#a6e3e9"/>
+                  <circle cx="28" cy="42" r="1.5" fill="#414345"/>
+                </svg>
+            </div>
+            <div class="desktop-message-title">
+                Desktop Mode Only
+            </div>
+            <div class="desktop-message-text">
+                This website is only available in <b>desktop mode</b>.<br>
+                Please open on a device with a larger screen<br>
+                <span style="color:#ffc640;">or enable desktop mode in your browser settings.</span>
+            </div>
+        </div>
     </div>
-    <header class="modern-header clean-header">
-    <h1>Financial Analysis</h1>
+    <header>
+    <h1>Financial Statement Analysis</h1>
     <div class="subtitle">Made by Abhinav Raj (MBA F.T)</div>
-</header>
+    </header>
     <main>
         <section id="income-statement">
             <div class="t-account-container">
@@ -195,8 +188,8 @@
             </div>
         </section>
         
-        <section id="balance-sheet" style="margin-top:2rem;">
-            <h2 style="text-align:center;">Balance Sheet</h2>
+        <section id="balance-sheet" style="margin-top:10rem;">
+            <h2 style="text-align:center; font-size: 4rem; color: #fffde7;">Balance Sheet</h2>
             <div class="balance-sheet-frame">
                 <div class="balance-sheet-t">
                     <!-- Liabilities & Equity Side -->
@@ -267,13 +260,13 @@
                     </div>
                 </div>
             </div>
-            <div style="display: flex; justify-content: center; margin-top: 2rem;">
+            <div style="display: flex; justify-content: center; margin-top: 2rem; margin-bottom: 5rem;">
                 <button id="analyseBalanceSheetBtn" class="button">Analyse Balance Sheet</button>
             </div>
         </section>
 
-        <section id="liquidity-dashboard" style="display:none;">
-            <h2 style="text-align:center; margin-top:2rem;">Liquidity Ratios</h2>
+        <section id="bs-ratio-dashboard" style="display:none;">
+            <h2 style="text-align:center; margin-top:5rem;">Liquidity Ratios</h2>
             <div class="liquidity-grid">
                 <div class="liquidity-card" id="currentRatioCard">
                     <div class="liquidity-title">Current Ratio</div>
@@ -301,7 +294,7 @@
                     <div class="liquidity-analysis" id="inventoryWCAnalysis"></div>
                 </div>
             </div>
-            <h2 style="text-align:center; margin-top:2rem;">Solvency Ratios</h2>
+            <h2 style="text-align:center; margin-top:5rem;">Solvency Ratios</h2>
             <div class="solvency-grid">
                 <div class="solvency-card" id="debtEquityCard">
                     <div class="solvency-title">Debt to Equity Ratio</div>
@@ -324,7 +317,7 @@
                     <div class="solvency-analysis" id="fixedAssetsRatioAnalysis"></div>
                 </div>
             </div>
-            <h2 style="text-align:center; margin-top:2rem;">Turnover Ratios</h2>
+            <h2 style="text-align:center; margin-top:5rem;">Turnover Ratios</h2>
             <div class="turnover-grid">
                 <div class="turnover-card">
                     <div class="turnover-title">Fixed Assets Turnover Ratio</div>
@@ -373,6 +366,6 @@
     <footer>
         
     </footer>
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

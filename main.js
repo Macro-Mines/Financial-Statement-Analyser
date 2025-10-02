@@ -79,6 +79,7 @@ document.getElementById('analyseBtn').addEventListener('click', () => {
     // Hide income statement, show dashboard
     document.getElementById('income-statement').style.display = 'none';
     document.getElementById('dashboard').style.display = 'block';
+    document.getElementById('dashboard').scrollIntoView({behavior:"smooth"});
 
     // Fill dashboard values
     document.getElementById('dashNetSales').textContent = document.getElementById('netSales').value;
@@ -193,7 +194,8 @@ window.addEventListener('DOMContentLoaded', calculateBalanceSheet);
 
 document.getElementById('analyseBalanceSheetBtn').addEventListener('click', () => {
     document.getElementById('balance-sheet').style.display = 'none';
-    document.getElementById('liquidity-dashboard').style.display = 'block';
+    document.getElementById('bs-ratio-dashboard').style.display = 'block';
+    document.getElementById('bs-ratio-dashboard').scrollIntoView({behavior:"smooth"});
 
     // Get values
     const currentAssets = +document.getElementById('bsTotalCurrentAssets').querySelector('span').textContent;
@@ -259,7 +261,7 @@ document.getElementById('analyseBalanceSheetBtn').addEventListener('click', () =
 });
 
 document.getElementById('backLiquidityBtn').addEventListener('click', () => {
-    document.getElementById('liquidity-dashboard').style.display = 'none';
+    document.getElementById('bs-ratio-dashboard').style.display = 'none';
     document.getElementById('balance-sheet').style.display = 'block';
 });
 
@@ -427,7 +429,6 @@ document.querySelectorAll('#cashSales, #cashPurchases, #openingStock, #closingSt
 
 // Also call after liquidity and solvency ratios are calculated
 document.getElementById('analyseBalanceSheetBtn').addEventListener('click', () => {
-    // ...existing liquidity and solvency ratio code...
     calculateTurnoverRatios();
 });
 
