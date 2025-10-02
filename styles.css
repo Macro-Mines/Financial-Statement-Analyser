@@ -76,6 +76,12 @@ h1 {
     padding: 2rem;
     width: 90%;
     max-width: 900px;
+    transition: box-shadow 0.4s, transform 0.4s;
+}
+
+.t-account:hover {
+    box-shadow: 0 12px 36px rgba(31, 38, 135, 0.18);
+    transform: translateY(-4px) scale(1.01);
 }
 
 .t-account-header {
@@ -296,6 +302,12 @@ h1 {
     margin: 2rem auto;
     max-width: 1200px;
     border: 2px solid #bbdefb;
+    transition: box-shadow 0.4s, transform 0.4s;
+}
+
+.balance-sheet-frame:hover {
+    box-shadow: 0 16px 48px rgba(31, 38, 135, 0.18);
+    transform: translateY(-4px) scale(1.01);
 }
 
 .balance-sheet-t {
@@ -628,6 +640,32 @@ h1 {
     background: rgba(255,255,255,0.6);
     font-size: 1em;
     font-family: 'Fira Mono', 'Consolas', monospace;
+}
+
+.clean-header {
+    background: none;
+    color: #23272b;
+    box-shadow: none;
+    border-bottom: 2px solid #e0e0e0;
+    transition: color 0.4s, border-bottom 0.4s;
+}
+
+.clean-header h1 {
+    color: #1a237e;
+    transition: color 0.4s;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-shadow: none;
+}
+
+.clean-header .subtitle {
+    margin-top: 8px;
+    font-size: 1.05em;
+    color: #333;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: none;
+    transition: color 0.4s;
 }
 
 @media (max-width: 700px) {
