@@ -267,14 +267,15 @@ document.getElementById('backLiquidityBtn').addEventListener('click', () => {
 
 function calculateSolvencyRatios() {
     // Get required values from Balance Sheet
-    const capital = +document.getElementById('bsCapital').value;
     const totalAssets = +document.getElementById('bsTotalAssets').value;
     const totalFixed = +document.getElementById('bsTotalFixed').querySelector('span').textContent;
     const totalLongterm = +document.getElementById('bsTotalLongterm').querySelector('span').textContent;
     const totalCurrentLiab = +document.getElementById('bsTotalCurrentLiab').querySelector('span').textContent;
+    const capital = +document.getElementById('bsNetCapital').querySelector('span').textContent;
 
-    // 1. Debt to Equity Ratio = Long-term Debts ÷ Capital
-    let debtEquity = capital !== 0 ? (totalLongterm + totalCurrentLiab / capital).toFixed(2) : "N/A";
+
+    // 1. Debt to Equity Ratio = Long-term Debts ÷ Net Capital
+    let debtEquity = capital !== 0 ? ((totalLongterm + totalCurrentLiab) / capital).toFixed(2) : "N/A";
     document.getElementById('debtEquityValue').textContent = debtEquity;
     document.getElementById('debtEquityAnalysis').textContent =
         debtEquity !== "N/A"
@@ -303,7 +304,7 @@ function calculateSolvencyRatios() {
                 : "Low proprietary ratio. Greater dependence on debt financing.")
             : "Total Assets are zero or not entered.";
 
-    // 4. Fixed Assets Ratio = Fixed Assets ÷ (Capital + Long-term Debts)
+    // 4. Fixed Assets Ratio = Fixed Assets ÷ (Capital + Long-term Fund)
     let fixedAssetsBase = capital + totalLongterm;
     let fixedAssetsRatio = fixedAssetsBase !== 0 ? (totalFixed / fixedAssetsBase).toFixed(2) : "N/A";
     document.getElementById('fixedAssetsRatioValue').textContent = fixedAssetsRatio;
@@ -330,8 +331,9 @@ function calculateTurnoverRatios() {
     // Extract necessary data from income statement and balance sheet
     const netSales = +document.getElementById('netSales').value;
     const totalFixed = +document.getElementById('bsTotalFixed').querySelector('span').textContent;
-    const workingCapital = +document.getElementById('workingCapitalValue').textContent;
-    const capital = +document.getElementById('bsCapital').value;
+    const currentAssets = +document.getElementById('bsTotalCurrentAssets').querySelector('span').textContent;
+    const currentLiabilities = +document.getElementById('bsTotalCurrentLiab').querySelector('span').textContent;
+    const capital = +document.getElementById('bsNetCapital').querySelector('span').textContent;
     const netPurchases = +document.getElementById('netPurchases').value;
     const creditors = +document.getElementById('bsCreditors').value;
     const billsPayable = +document.getElementById('bsBillsPayable').value;
@@ -356,6 +358,7 @@ function calculateTurnoverRatios() {
             : "Fixed Assets are zero or not entered.";
 
     // 2. Working Capital Turnover Ratio = Net Sales ÷ Working Capital
+    let workingCapital = currentAssets - currentLiabilities;
     let workingCapitalTurnover = workingCapital !== 0 ? (netSales / workingCapital).toFixed(2) : "N/A";
     document.getElementById('workingCapitalTurnoverValue').textContent = workingCapitalTurnover;
     document.getElementById('workingCapitalTurnoverAnalysis').textContent =
@@ -365,8 +368,8 @@ function calculateTurnoverRatios() {
                 : "Low turnover. Working capital may be excessive or underutilized.")
             : "Working Capital is zero or not entered.";
 
-    // 3. Capital Turnover Ratio = Net Sales ÷ Capital
-    let capitalTurnover = capital !== 0 ? (netSales / capital).toFixed(2) : "N/A";
+    // 3. Capital Turnover Ratio = COGS ÷  Capital
+    let capitalTurnover = capital !== 0 ? (cogs / capital).toFixed(2) : "N/A";
     document.getElementById('capitalTurnoverValue').textContent = capitalTurnover;
     document.getElementById('capitalTurnoverAnalysis').textContent =
         capitalTurnover !== "N/A"
@@ -423,7 +426,7 @@ function calculateTurnoverRatios() {
 }
 
 // Auto-calculate turnover ratios on input change
-document.querySelectorAll('#cashSales, #cashPurchases, #openingStock, #closingStock, #netSales, #netPurchases, #cogs, #bsCapital, #bsTotalFixed span, #workingCapitalValue, #bsCreditors, #bsBillsPayable, #bsDebtors, #bsBillsReceivable').forEach(input => {
+document.querySelectorAll('#cashSales, #cashPurchases, #openingStock, #closingStock, #netSales, #netPurchases, #cogs, #bsNetCapital, #bsTotalFixed span, #workingCapitalValue, #bsCreditors, #bsBillsPayable, #bsDebtors, #bsBillsReceivable').forEach(input => {
     input.addEventListener('input', calculateTurnoverRatios);
 });
 
