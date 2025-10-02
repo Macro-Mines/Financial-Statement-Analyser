@@ -2,11 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Force desktop viewport and show message on small screens -->
+    <meta name="viewport" content="width=1024, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Financial Statement Analysis</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        @media (max-width: 900px) {
+            body > *:not(#desktop-only-message) {
+                display: none !important;
+            }
+            #desktop-only-message {
+                display: flex !important;
+            }
+        }
+        #desktop-only-message {
+            display: none;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            color: #e1f9fa;
+            background: #08023b;
+            text-align: center;
+            padding: 2em;
+            z-index: 9999;
+            position: fixed;
+            inset: 0;
+        }
+    </style>
 </head>
 <body>
+    <div id="desktop-only-message">
+        This website is only available in desktop mode.<br>
+        Please open on a device with a larger screen or turn on desktop mode in the browser settings.
+    </div>
     <header class="modern-header clean-header">
     <h1>Financial Analysis</h1>
     <div class="subtitle">Made by Abhinav Raj (MBA F.T)</div>
