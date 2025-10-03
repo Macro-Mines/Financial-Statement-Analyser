@@ -1,20 +1,22 @@
 body {
     min-height: auto;
-    background: linear-gradient(135deg, #4f8cff 0%, #a6e3e9 100%);
     font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #0b0447 ;
+    color: #eff5ff;
+	background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.2"%3E%3Cpath opacity=".5" d="M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z"/%3E%3Cpath d="M6 5V0H5v5H0v1h5v94h1V6h94V5H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+    
 }
 
 
 header {
     background: none;
-    color: #37044a;
     text-align: center;
     padding: 1rem;
 }
 
 
 header h1 {
-    color: #111862;
+    color: #f1c7ff;
     transition: color 0.4s;
     letter-spacing: 2px;
     font-weight: 700;
@@ -25,7 +27,7 @@ header h1 {
 header .subtitle {
     margin-top: 8px;
     font-size: 1.5em;
-    color: #333;
+    color: #c57cfc;
     font-weight: 600;
     letter-spacing: 1px;
     text-shadow: none;
@@ -88,7 +90,7 @@ h1 {
 }
 
 .t-account {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(75, 44, 186, 0.25);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(8px);
     border-radius: 16px;
@@ -100,7 +102,8 @@ h1 {
 }
 
 .t-account:hover {
-    box-shadow: 0 12px 36px rgba(31, 38, 135, 0.18);
+    box-shadow: 0 12px 36px rgba(39, 52, 243, 0.18);
+    border: 2px solid rgba(255, 255, 255, 0.855);
     transform: translateY(-4px) scale(1.01);
 }
 
@@ -109,7 +112,7 @@ h1 {
     font-size: 1.3rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    color: #1a237e;
+    color: #f1c7ff;
 }
 
 .t-account-body {
@@ -120,16 +123,22 @@ h1 {
 
 .t-account-side {
     flex: 1;
-    background: rgba(255,255,255,0.15);
+    background: rgba(80, 2, 183, 0.342);
     border-radius: 12px;
     padding: 1rem;
     box-shadow: 0 2px 8px rgba(31,38,135,0.07);
+    transition: all smooth 1s;
+}
+
+.t-account-side:hover {
+    background: rgba(33, 1, 73, 0.34);
+    border: 2px solid rgba(255, 255, 255, 0.855);
 }
 
 .t-account-side h3 {
     text-align: center;
     margin-bottom: 1rem;
-    color: #1565c0;
+    color: #f1c7ff;
 }
 
 .t-account-side label {
@@ -145,7 +154,7 @@ h1 {
     padding: 0.3rem;
     border-radius: 6px;
     border: 1px solid #90caf9;
-    background: rgba(255,255,255,0.6);
+    background: rgb(187, 173, 250);
     font-size: 1rem;
 }
 
@@ -186,7 +195,7 @@ h1 {
 
 .computed-term.direct-expenses {
     background: #fffde7;
-    color: #fbc02d;
+    color: #ff0c0c;
 }
 
 .computed-term.cogs {
@@ -196,7 +205,7 @@ h1 {
 
 .computed-term.gross-profit {
     background: #e8f5e9;
-    color: #388e3c;
+    color: #07af0f;
 }
 
 .computed-term.indirect-expenses {
@@ -221,12 +230,12 @@ h1 {
     margin: 2rem 0;
 
 
-    background: linear-gradient(135deg, #3636ee 0%, #fce4ec 100%);
+    background: linear-gradient(135deg, #7636eea9 0%, #1d013b 100%);
     border-radius: 18px;
     box-shadow: 0 8px 32px rgba(31,38,135,0.13), 0 2px 8px rgba(31,38,135,0.07);
     padding: 2rem 1.2rem;
     backdrop-filter: blur(8px);
-    border: 1.5px solid rgb(255, 255, 255);
+    
 }
 
 .dashboard-card {
@@ -294,19 +303,19 @@ h1 {
 }
 
 .balance-sheet-frame {
-    background: linear-gradient(135deg, #e3f2fd 0%, #ede7f6 100%);
+    background: linear-gradient(135deg, #020280 40%, #ede7f6 100%);
     border-radius: 24px;
     box-shadow: 0 8px 32px rgba(31,38,135,0.13);
     padding: 2.5rem 1.5rem;
     margin: 2rem auto;
     max-width: 1200px;
-    border: 2px solid #bbdefb;
     transition: box-shadow 0.4s, transform 0.4s;
 }
 
 .balance-sheet-frame:hover {
     box-shadow: 0 16px 48px rgba(31, 38, 135, 0.18);
     transform: translateY(-4px) scale(1.01);
+    border: 2px solid #bbdefb;
 }
 
 .balance-sheet-t {
@@ -317,25 +326,31 @@ h1 {
 
 .balance-sheet-side {
     flex: 1;
-    background: rgba(255,255,255,0.35);
+    background: rgba(71, 8, 148, 0.489);
     border-radius: 18px;
     box-shadow: 0 2px 8px rgba(31,38,135,0.07);
     padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    transition: all smooth 1s;
+}
+
+.balance-sheet-side:hover {
+    background: rgba(33, 1, 73, 0.34);
+    border: 2px solid rgba(255, 255, 255, 0.855);
 }
 
 .balance-sheet-side h3 {
     text-align: center;
     font-size: 1.3em;
     font-family: 'Fira Mono', 'Consolas', monospace;
-    color: #1976d2;
+    color: #addeff;
     margin-bottom: 1rem;
 }
 
 .bs-category {
-    background: linear-gradient(135deg, #fffde7 0%, #e8f5e9 100%);
+    background: linear-gradient(135deg, #a6a1f2 0%, #e8f5e9 100%);
     border-radius: 14px;
     box-shadow: 0 2px 8px rgba(31,38,135,0.05);
     padding: 1rem;
@@ -393,7 +408,7 @@ h1 {
 
 .bs-total-liab, .bs-total-assets {
     flex: 1;
-    background: linear-gradient(90deg, #1976d2 0%, #388e3c 100%);
+    background: linear-gradient(90deg, #1976d2 0%, #6a01d2 100%);
     color: #fff;
     font-family: 'Fira Mono', 'Consolas', monospace;
     font-weight: bold;
@@ -430,12 +445,11 @@ h1 {
     gap: 2rem;
     margin: 2rem 0;
 
-    background: linear-gradient(135deg, #ba36ee 0%, #fce4ec 100%);
+    background: linear-gradient(135deg, #6d0896 40%, #fce4ec 100%);
     border-radius: 18px;
     box-shadow: 0 8px 32px rgba(31,38,135,0.13), 0 2px 8px rgba(31,38,135,0.07);
     padding: 2rem 1.2rem;
     backdrop-filter: blur(8px);
-    border: 1.5px solid rgb(255, 255, 255);
 }
 
 .liquidity-card {
@@ -505,12 +519,11 @@ h1 {
     gap: 2rem;
     margin: 2rem 0;
 
-    background: linear-gradient(135deg, #d20383 0%, #fce4ec 100%);
+    background: linear-gradient(135deg, #bc0576 40%, #fce4ec 100%);
     border-radius: 18px;
     box-shadow: 0 8px 32px rgba(31,38,135,0.13), 0 2px 8px rgba(31,38,135,0.07);
     padding: 2rem 1.2rem;
     backdrop-filter: blur(8px);
-    border: 1.5px solid rgb(255, 255, 255);
 }
 
 .solvency-card {
@@ -579,12 +592,11 @@ h1 {
     gap: 2rem;
     margin: 2rem 0;
 
-    background: linear-gradient(135deg, #797bf0 0%, #fce4ec 100%);
+    background: linear-gradient(135deg, #0609a3 0%, #fce4ec 100%);
     border-radius: 18px;
     box-shadow: 0 8px 32px rgba(31,38,135,0.13), 0 2px 8px rgba(31,38,135,0.07);
     padding: 2rem 1.2rem;
     backdrop-filter: blur(8px);
-    border: 1.5px solid rgb(255, 255, 255);
 }
 
 .turnover-card {
