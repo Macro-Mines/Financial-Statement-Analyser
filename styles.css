@@ -3,8 +3,7 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background-color: #0b0447 ;
     color: #eff5ff;
-	background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.2"%3E%3Cpath opacity=".5" d="M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z"/%3E%3Cpath d="M6 5V0H5v5H0v1h5v94h1V6h94V5H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
-    
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.2"%3E%3Cpath opacity=".5" d="M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z"/%3E%3Cpath d="M6 5V0H5v5H0v1h5v94h1V6h94V5H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
 }
 
 
@@ -856,4 +855,265 @@ h1 {
     color: #fffde7;
     box-shadow: 0 8px 32px rgba(251,192,45,0.22);
     transform: translateY(-2px) scale(1.04);
+}
+
+
+
+/* Add these classes at the end of the existing file */
+
+.bank-statement-frame {
+    background: linear-gradient(135deg, #090979 40%, #a200ff 100%);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(31,38,135,0.13);
+    padding: 2.5rem 1.5rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    transition: box-shadow 0.4s, transform 0.4s;
+}
+
+.bank-statement-frame:hover {
+    box-shadow: 0 16px 48px rgba(31,38,135,0.18);
+    transform: translateY(-4px) scale(1.01);
+    border: 2px solid #d7edff;
+}
+
+.bank-category {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.bank-category:hover {
+    background: rgba(1, 3, 50, 0.326);
+    border: 2px solid #d7edff;
+}
+
+.bank-category-title {
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    font-size: 1.1em;
+    color: #f1c7ff;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bank-category-title .schedule {
+    font-size: 0.9em;
+    color: #90caf9;
+}
+
+.bank-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    color: #eff5ff;
+}
+
+.bank-row input[type="number"] {
+    width: 150px;
+    padding: 0.4rem;
+    border-radius: 6px;
+    border: 1px solid #90caf9;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+}
+
+.bank-deposits-subcategory {
+    margin-left: 2rem;
+    border-left: 2px solid rgba(255,255,255,0.2);
+    padding-left: 1rem;
+}
+
+.bank-total {
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+    color: #f1c7ff;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bank-total input[readonly] {
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+}
+
+.bank-section-total {
+    background: linear-gradient(90deg, #0e3eee 0%, #6919d2 100%);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.bank-section-total input[readonly] {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    width: 180px;
+}
+
+
+
+
+/* Analyse BANK Button */
+#analyseBankBtn.button {
+    background: linear-gradient(90deg, #00838f 0%, #1976d2 100%);
+    color: #fff;
+    font-size: 1.15em;
+    font-weight: 600;
+    padding: 0.85em 2.2em;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(25,118,210,0.13);
+    letter-spacing: 1px;
+    transition: 
+        background 0.3s cubic-bezier(.4,0,.2,1),
+        color 0.3s,
+        box-shadow 0.3s,
+        transform 0.2s;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+#analyseBankBtn.button:hover, #analyseBankBtn.button:focus {
+    background: linear-gradient(90deg, #1976d2 0%, #00838f 100%);
+    color: #fffde7;
+    box-shadow: 0 8px 32px rgba(25,118,210,0.22);
+    transform: translateY(-2px) scale(1.04);
+}
+
+
+
+.bank-performance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+    background: linear-gradient(135deg, #a200ff 0%, #00d4ff 100%);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(31,38,135,0.13), 0 2px 8px rgba(31,38,135,0.07);
+    padding: 2rem 1.2rem;
+    backdrop-filter: blur(8px);
+}
+
+
+.bank-performance-card {
+    background: linear-gradient(135deg, #fffde7 0%, #e0f7fa 100%);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(31,38,135,0.13), 0 2px 8px rgba(31,38,135,0.07);
+    padding: 2rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center all content */
+    border: 1.5px solid rgba(255,255,255,0.22);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+    min-height: 340px;
+}
+
+.bank-performance-card:nth-child(1) { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); }
+.bank-performance-card:nth-child(2) { background: linear-gradient(135deg, #fffde7 0%, #ffe082 100%); }
+.bank-performance-card:nth-child(3) { background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); }
+.bank-performance-card:nth-child(4) { background: linear-gradient(135deg, #e8f5e9 0%, #a5d6a7 100%); }
+.bank-performance-card:nth-child(5) { background: linear-gradient(135deg, #ede7f6 0%, #b39ddb 100%); }
+.bank-performance-card:nth-child(6) { background: linear-gradient(135deg, #f3e5f5 0%, #ce93d8 100%); }
+.bank-performance-card:nth-child(7) { background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%); }
+.bank-performance-card:nth-child(8) { background: linear-gradient(135deg, #fff3e0 0%, #ffcc80 100%); }
+
+.bank-performance-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 36px rgba(6, 120, 249, 0.18);
+    border: 3px solid rgb(255, 255, 255);
+}
+
+.bank-performance-title {
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    font-weight: bold;
+    font-size: 1.18em;
+    color: #1976d2;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(31,38,135,0.07);
+    text-align: center;
+    width: 100%;
+}
+
+.bank-performance-value {
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 0.5rem;
+    background: rgba(255,255,255,0.7);
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(31,38,135,0.07);
+    text-align: center;
+    width: 100%;
+}
+
+.bank-performance-formula {
+    font-size: 1em;
+    color: #00838f;
+    margin-bottom: 0.7rem;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    background: rgba(255,255,255,0.6);
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(31,38,135,0.05);
+    text-align: center;
+    width: 100%;
+}
+
+.bank-performance-formula label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8em;
+    margin-top: 0.5em;
+    font-size: 0.98em;
+    color: #1976d2;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+}
+
+.bank-performance-formula input[type="number"] {
+    width: 90px;
+    padding: 0.3rem;
+    border-radius: 6px;
+    border: 1px solid #90caf9;
+    background: rgba(255,255,255,0.6);
+    font-size: 1em;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    text-align: center;
+}
+
+.bank-performance-analysis {
+    font-size: 1em;
+    color: #388e3c;
+    text-align: center;
+    margin-top: 0.5rem;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: rgba(255,255,255,0.6);
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(31,38,135,0.05);
+    width: 100%;
 }

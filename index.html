@@ -5,7 +5,7 @@
     <!-- Force desktop viewport and show message on small screens -->
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Financial Statement Analysis</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div id="desktop-only-message">
@@ -35,7 +35,7 @@
     </header>
     <main>
         <section id="income-statement">
-            <h2 style="text-align:center; font-size: 3rem; color: #fffde7;">Income Statement</h2>
+            <h2 style="text-align:center; font-size: 2.5rem; color: #fffde7;">Income Statement</h2>
             <div class="t-account-container">
                 <div class="t-account">
                     <div class="t-account-header">
@@ -363,10 +363,297 @@
                 <button id="backLiquidityBtn" class="button">Back</button>
             </div>
         </section>
+
+
+        <section id="bank-statement" style="margin-top:10rem;">
+            <h2 style="text-align:center; font-size: 4rem; color: #fffde7;">Bank Financial Statement</h2>
+            <div class="bank-statement-frame">
+                <!-- Liabilities & Capital -->
+                <div class="bank-category">
+                    <div class="bank-category-title">
+                        <span>Liabilities & Capital</span>
+                    </div>
+                    
+                    <!-- Capital -->
+                    <div class="bank-row">
+                        <span>Capital</span>
+                        <div>
+                            <span class="schedule">Sch. 1</span>
+                            <input type="number" id="bankCapital" value="0">
+                        </div>
+                    </div>
+        
+                    <!-- Reserves & Surplus -->
+                    <div class="bank-row">
+                        <span>Reserves & Surplus</span>
+                        <div>
+                            <span class="schedule">Sch. 2</span>
+                            <input type="number" id="bankReserves" value="0">
+                        </div>
+                    </div>
+        
+                    <!-- Deposits -->
+                    <div class="bank-category">
+                        <div class="bank-category-title">
+                            <span>Deposits</span>
+                            <span class="schedule">Sch. 3</span>
+                        </div>
+                        <div class="bank-deposits-subcategory">
+                            <div class="bank-row">
+                                <span>A. Demand Deposits</span>
+                                <input type="number" id="demandDeposits" value="0">
+                            </div>
+                            <div class="bank-row">
+                                <span>B. Savings Deposits</span>
+                                <input type="number" id="savingsDeposits" value="0">
+                            </div>
+                            <div class="bank-row">
+                                <span>C. Term Deposits</span>
+                                <input type="number" id="termDeposits" value="0">
+                            </div>
+                        </div>
+                        <div class="bank-total">
+                            <span>Total Deposits</span>
+                            <input type="number" id="totalDeposits" readonly value="0">
+                        </div>
+                    </div>
+        
+                    <!-- Borrowings -->
+                    <div class="bank-row">
+                        <span>Borrowings</span>
+                        <div>
+                            <span class="schedule">Sch. 4</span>
+                            <input type="number" id="bankBorrowings" value="0">
+                        </div>
+                    </div>
+        
+                    <!-- Other Liabilities -->
+                    <div class="bank-row">
+                        <span>Other Liabilities & Provisions</span>
+                        <div>
+                            <span class="schedule">Sch. 5</span>
+                            <input type="number" id="otherLiabilities" value="0">
+                        </div>
+                    </div>
+        
+                    <div class="bank-section-total">
+                        <span>Total Liabilities & Capital</span>
+                        <input type="number" id="totalLiabilitiesCapital" readonly value="0">
+                    </div>
+                </div>
+        
+                <!-- Assets -->
+                <div class="bank-category">
+                    <div class="bank-category-title">
+                        <span>Assets</span>
+                    </div>
+        
+                    <!-- Cash & Balances with RBI -->
+                    <div class="bank-row">
+                        <span>Cash & Balances with RBI</span>
+                        <div>
+                            <span class="schedule">Sch. 6</span>
+                            <input type="number" id="cashRBI" value="0">
+                        </div>
+                    </div>
+        
+                    <!-- Balances with Banks -->
+                    <div class="bank-row">
+                        <span>Balances with Banks & Money at Call</span>
+                        <div>
+                            <span class="schedule">Sch. 7</span>
+                            <input type="number" id="bankBalances" value="0">
+                        </div>
+                    </div>
+        
+                    <!-- Investments -->
+                    <div class="bank-row">
+                        <span>Investments</span>
+                        <div>
+                            <span class="schedule">Sch. 8</span>
+                            <input type="number" id="investments" value="0">
+                        </div>
+                    </div>
+        
+                    <!-- Advances -->
+                    <div class="bank-row">
+                        <span>Loans & Advances</span>
+                        <div>
+                            <span class="schedule">Sch. 9</span>
+                            <input type="number" id="advances" value="0">
+                        </div>
+                    </div>
+        
+                    <!-- Fixed Assets -->
+                    <div class="bank-row">
+                        <span>Fixed Assets</span>
+                        <div>
+                            <span class="schedule">Sch. 10</span>
+                            <input type="number" id="fixedAssets" value="0">
+                        </div>
+                    </div>
+        
+                    <!-- Other Assets -->
+                    <div class="bank-row">
+                        <span>Other Assets</span>
+                        <div>
+                            <span class="schedule">Sch. 11</span>
+                            <input type="number" id="otherAssets" value="0">
+                        </div>
+                    </div>
+        
+                    <div class="bank-section-total">
+                        <span>Total Assets</span>
+                        <input type="number" id="totalAssets" readonly value="0">
+                    </div>
+                </div>
+                                
+                <div class="bank-category">
+                    <div class="bank-category-title">
+                        <span>Income Statement</span>
+                    </div>
+                    <div class="bank-row">
+                        <span>Interest Earned</span>
+                        <div>
+                            <span class="schedule">Sch. 13</span>
+                            <input type="number" id="bankInterestEarned" value="0">
+                        </div>
+                    </div>
+                    <div class="bank-row">
+                        <span>Other Income</span>
+                        <div>
+                            <span class="schedule">Sch. 14</span>
+                            <input type="number" id="bankOtherIncome" value="0">
+                        </div>
+                    </div>
+                    <div class="bank-row">
+                        <span>Interest Expended</span>
+                        <div>
+                            <span class="schedule">Sch. 15</span>
+                            <input type="number" id="bankInterestExpended" value="0">
+                        </div>
+                    </div>
+                    <div class="bank-row">
+                        <span>Operating Expenses</span>
+                        <div>
+                            <span class="schedule">Sch. 16</span>
+                            <input type="number" id="bankOperatingExpenses" value="0">
+                        </div>
+                    </div>
+                    <div class="bank-total">
+                        <span>Total Income</span>
+                        <input type="number" id="bankTotalIncome" readonly value="0">
+                    </div>
+                    <div class="bank-total">
+                        <span>Total Expenses</span>
+                        <input type="number" id="bankTotalExpenses" readonly value="0">
+                    </div>
+                    <div class="bank-total">
+                        <span>Net Interest Income</span>
+                        <input type="number" id="bankNetInterestIncome" readonly value="0">
+                    </div>
+                    <div class="bank-section-total">
+                        <span>Net Profit</span>
+                        <input type="number" id="bankNetProfit" readonly value="0">
+                    </div>
+                </div>
+            </div>
+            
+            <div style="display: flex; justify-content: center; margin-top: 2rem; margin-bottom: 5rem;">
+                <button id="analyseBankBtn" class="button">Analyse Bank Performance</button>
+            </div>
+        </section>
+
+        <!-- Add this section after the bank statement form, before </main> -->
+        <section id="bank-performance-dashboard" style="display:none;">
+            <h2 style="text-align:center; font-size: 3rem; color: #fffde7; margin-top: 10rem;">Bank Performance Ratios</h2>
+            <div class="bank-performance-grid">
+                <!-- 1. Interest Income % -->
+                <div class="bank-performance-card">
+                    <div class="bank-performance-title">Interest Income %</div>
+                    <div class="bank-performance-value" id="interestIncomePercent"></div>
+                    <div class="bank-performance-formula">Interest Income % = (Interest Earned ÷ Total Income) × 100</div>
+                    <div class="bank-performance-analysis">
+                        This ratio shows the proportion of total income earned from core banking activities like lending and investments. A <b>high value</b> indicates strong earning efficiency. A <b>low value</b> suggests reliance on non-core or uncertain income sources.
+                    </div>
+                </div>
+                <!-- 2. Net Interest Income % -->
+                <div class="bank-performance-card">
+                    <div class="bank-performance-title">Net Interest Income % (NII%)</div>
+                    <div class="bank-performance-value" id="netInterestIncomePercent"></div>
+                    <div class="bank-performance-formula">Net Interest Income % = (Net Interest Income ÷ Total Income) × 100</div>
+                    <div class="bank-performance-analysis">
+                        Measures the spread between interest earned and interest paid. <b>High ratio</b> shows effective asset-liability management, <b>low ratio</b> indicates narrow margins or high cost of funds.
+                    </div>
+                </div>
+                <!-- 3. Net Profit Margin % -->
+                <div class="bank-performance-card">
+                    <div class="bank-performance-title">Net Profit Margin % (NPM%)</div>
+                    <div class="bank-performance-value" id="netProfitMarginPercent"></div>
+                    <div class="bank-performance-formula">Net Profit Margin % = (Net Profit ÷ Total Income) × 100</div>
+                    <div class="bank-performance-analysis">
+                        Reflects profitability per unit of income. <b>High NPM</b> indicates efficient cost control and strong earnings. <b>Low NPM</b> implies higher operating costs or weaker revenue generation.
+                    </div>
+                </div>
+                <!-- 4. Net Interest Margin (NIM%) -->
+                <div class="bank-performance-card">
+                    <div class="bank-performance-title">Net Interest Margin (NIM%)</div>
+                    <div class="bank-performance-value" id="netInterestMarginPercent"></div>
+                    <div class="bank-performance-formula">NIM % = (Net Interest Income ÷ (Advances + Investments)) × 100</div>
+                    <div class="bank-performance-analysis">
+                        Indicates how efficiently the bank’s earning assets generate profit. <b>High NIM</b> means better returns, <b>low NIM</b> indicates poor yield or rising interest costs.
+                    </div>
+                </div>
+                <!-- 5. Total Business -->
+                <div class="bank-performance-card">
+                    <div class="bank-performance-title">Total Business</div>
+                    <div class="bank-performance-value" id="totalBusiness"></div>
+                    <div class="bank-performance-formula">Total Business = Total Deposits + Total Advances</div>
+                    <div class="bank-performance-analysis">
+                        Shows the overall operational size of the bank. <b>High total business</b> indicates strong growth and market presence. <b>Low value</b> may suggest limited lending or deposit mobilization.
+                    </div>
+                </div>
+                <!-- 6. CASA Ratio -->
+                <div class="bank-performance-card">
+                    <div class="bank-performance-title">CASA Ratio</div>
+                    <div class="bank-performance-value" id="casaRatio"></div>
+                    <div class="bank-performance-formula">CASA Ratio = ((Demand Deposits + Savings Deposits) ÷ Total Deposits) × 100</div>
+                    <div class="bank-performance-analysis">
+                        Measures the proportion of low-cost deposits. <b>High CASA ratio</b> indicates cheap and stable funding. <b>Low CASA ratio</b> shows dependence on expensive term deposits.
+                    </div>
+                </div>
+                <!-- 7. Loans to Deposits Ratio (LDR) -->
+                <div class="bank-performance-card">
+                    <div class="bank-performance-title">Loans to Deposits Ratio (LDR)</div>
+                    <div class="bank-performance-value" id="loansToDepositsRatio"></div>
+                    <div class="bank-performance-formula">LDR = (Total Advances ÷ Total Deposits) × 100</div>
+                    <div class="bank-performance-analysis">
+                        Indicates how well the bank deploys its deposits into loans. <b>High LDR</b> shows efficient fund utilization, but if too high, it may pose liquidity risks. <b>Low LDR</b> implies underutilized deposits.
+                    </div>
+                </div>
+                <!-- 8. Capital Adequacy Ratio (CAR) -->
+                <div class="bank-performance-card">
+                    <div class="bank-performance-title">Capital Adequacy Ratio (CAR)</div>
+                    <div class="bank-performance-value" id="capitalAdequacyRatio"></div>
+                    <div class="bank-performance-formula">
+                        CAR = ((Capital + Reserves) ÷ Risk-Weighted Assets) × 100<br>
+                        <label>Credit Risk RWA <input type="number" id="creditRiskRWA" value="0"></label>
+                        <label>Market Risk RWA <input type="number" id="marketRiskRWA" value="0"></label>
+                        <label>Operational Risk RWA <input type="number" id="operationalRiskRWA" value="0"></label>
+                    </div>
+                    <div class="bank-performance-analysis">
+                        Measures the bank’s capital strength against risks. <b>High CAR</b> reflects strong solvency and depositor safety. <b>Low CAR</b> (below regulatory minimum, e.g., 9%) indicates weak capital buffer and higher financial risk.
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center; margin:2rem;">
+                <button id="backBankPerformanceBtn" class="button">Back</button>
+            </div>
+        </section>
     </main>
     <footer>
         
     </footer>
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

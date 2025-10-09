@@ -435,3 +435,146 @@ document.getElementById('analyseBalanceSheetBtn').addEventListener('click', () =
     calculateTurnoverRatios();
 });
 
+
+
+// Add at the end of main.js
+function calculateBankStatement() {
+    // Calculate Total Deposits
+    const demandDeposits = +document.getElementById('demandDeposits').value;
+    const savingsDeposits = +document.getElementById('savingsDeposits').value;
+    const termDeposits = +document.getElementById('termDeposits').value;
+    const totalDeposits = demandDeposits + savingsDeposits + termDeposits;
+    document.getElementById('totalDeposits').value = totalDeposits;
+
+    // Calculate Total Liabilities & Capital
+    const capital = +document.getElementById('bankCapital').value;
+    const reserves = +document.getElementById('bankReserves').value;
+    const borrowings = +document.getElementById('bankBorrowings').value;
+    const otherLiabilities = +document.getElementById('otherLiabilities').value;
+    const totalLiabilitiesCapital = capital + reserves + totalDeposits + borrowings + otherLiabilities;
+    document.getElementById('totalLiabilitiesCapital').value = totalLiabilitiesCapital;
+
+    // Calculate Total Assets
+    const cashRBI = +document.getElementById('cashRBI').value;
+    const bankBalances = +document.getElementById('bankBalances').value;
+    const investments = +document.getElementById('investments').value;
+    const advances = +document.getElementById('advances').value;
+    const fixedAssets = +document.getElementById('fixedAssets').value;
+    const otherAssets = +document.getElementById('otherAssets').value;
+    const totalAssets = cashRBI + bankBalances + investments + advances + fixedAssets + otherAssets;
+    document.getElementById('totalAssets').value = totalAssets;
+    
+    // Income Statement for Bank
+    const interestEarned = +document.getElementById('bankInterestEarned').value;
+    const otherIncome = +document.getElementById('bankOtherIncome').value;
+    const interestExpended = +document.getElementById('bankInterestExpended').value;
+    const operatingExpenses = +document.getElementById('bankOperatingExpenses').value;
+
+    const bankTotalIncome = interestEarned + otherIncome;
+    document.getElementById('bankTotalIncome').value = bankTotalIncome;
+
+    const bankTotalExpenses = interestExpended + operatingExpenses;
+    document.getElementById('bankTotalExpenses').value = bankTotalExpenses;
+    
+    const bankNetInterestIncome = interestEarned - interestExpended;
+    document.getElementById('bankNetInterestIncome').value = bankNetInterestIncome;
+
+    const bankNetProfit = bankTotalIncome - bankTotalExpenses;
+    document.getElementById('bankNetProfit').value = bankNetProfit;
+}
+
+// Add after calculateBankStatement()
+
+function calculateBankPerformanceRatios() {
+    // Get values from bank statement
+    const interestEarned = +document.getElementById('bankInterestEarned').value;
+    const otherIncome = +document.getElementById('bankOtherIncome').value;
+    const interestExpended = +document.getElementById('bankInterestExpended').value;
+    const operatingExpenses = +document.getElementById('bankOperatingExpenses').value;
+    const netInterestIncome = interestEarned - interestExpended;
+    const totalIncome = interestEarned + otherIncome;
+    const totalExpenses = interestExpended + operatingExpenses;
+    const netProfit = totalIncome - totalExpenses;
+
+    const advances = +document.getElementById('advances').value;
+    const investments = +document.getElementById('investments').value;
+    const totalDeposits = +document.getElementById('totalDeposits').value;
+
+    const demandDeposits = +document.getElementById('demandDeposits').value;
+    const savingsDeposits = +document.getElementById('savingsDeposits').value;
+    const termDeposits = +document.getElementById('termDeposits').value;
+
+    const capital = +document.getElementById('bankCapital').value;
+    const reserves = +document.getElementById('bankReserves').value;
+
+    // RWA inputs
+    const creditRiskRWA = +document.getElementById('creditRiskRWA').value;
+    const marketRiskRWA = +document.getElementById('marketRiskRWA').value;
+    const operationalRiskRWA = +document.getElementById('operationalRiskRWA').value;
+    const riskWeightedAssets = creditRiskRWA + marketRiskRWA + operationalRiskRWA;
+
+    // 1. Interest Income %
+    let interestIncomePercent = totalIncome !== 0 ? ((interestEarned / totalIncome) * 100).toFixed(2) : "N/A";
+    document.getElementById('interestIncomePercent').textContent = interestIncomePercent + (interestIncomePercent !== "N/A" ? "%" : "");
+
+    // 2. Net Interest Income %
+    let netInterestIncomePercent = totalIncome !== 0 ? ((netInterestIncome / totalIncome) * 100).toFixed(2) : "N/A";
+    document.getElementById('netInterestIncomePercent').textContent = netInterestIncomePercent + (netInterestIncomePercent !== "N/A" ? "%" : "");
+
+    // 3. Net Profit Margin %
+    let netProfitMarginPercent = totalIncome !== 0 ? ((netProfit / totalIncome) * 100).toFixed(2) : "N/A";
+    document.getElementById('netProfitMarginPercent').textContent = netProfitMarginPercent + (netProfitMarginPercent !== "N/A" ? "%" : "");
+
+    // 4. Net Interest Margin (NIM%)
+    let avgEarningAssets = advances + investments;
+    let netInterestMarginPercent = avgEarningAssets !== 0 ? ((netInterestIncome / avgEarningAssets) * 100).toFixed(2) : "N/A";
+    document.getElementById('netInterestMarginPercent').textContent = netInterestMarginPercent + (netInterestMarginPercent !== "N/A" ? "%" : "");
+
+    // 5. Total Business
+    let totalBusiness = totalDeposits + advances;
+    document.getElementById('totalBusiness').textContent = totalBusiness;
+
+    // 6. CASA Ratio
+    let casaRatio = totalDeposits !== 0 ? (((demandDeposits + savingsDeposits) / totalDeposits) * 100).toFixed(2) : "N/A";
+    document.getElementById('casaRatio').textContent = casaRatio + (casaRatio !== "N/A" ? "%" : "");
+
+    // 7. Loans to Deposits Ratio (LDR)
+    let loansToDepositsRatio = totalDeposits !== 0 ? ((advances / totalDeposits) * 100).toFixed(2) : "N/A";
+    document.getElementById('loansToDepositsRatio').textContent = loansToDepositsRatio + (loansToDepositsRatio !== "N/A" ? "%" : "");
+
+    // 8. Capital Adequacy Ratio (CAR)
+    let car = riskWeightedAssets !== 0 ? (((capital + reserves) / riskWeightedAssets) * 100).toFixed(2) : "N/A";
+    document.getElementById('capitalAdequacyRatio').textContent = car + (car !== "N/A" ? "%" : "");
+}
+
+// Show/hide dashboard on button click
+document.getElementById('analyseBankBtn').addEventListener('click', () => {
+    document.getElementById('bank-statement').style.display = 'none';
+    document.getElementById('bank-performance-dashboard').style.display = 'block';
+    calculateBankPerformanceRatios();
+    document.getElementById('bank-performance-dashboard').scrollIntoView({behavior:"smooth"});
+});
+
+document.getElementById('backBankPerformanceBtn').addEventListener('click', () => {
+    document.getElementById('bank-performance-dashboard').style.display = 'none';
+    document.getElementById('bank-statement').style.display = 'block';
+});
+
+// Auto-update ratios when any input changes
+document.querySelectorAll('#bank-statement input[type="number"], #bank-performance-dashboard input[type="number"]').forEach(input => {
+    input.addEventListener('input', calculateBankPerformanceRatios);
+});
+
+
+
+
+// Ensure event listeners include new inputs
+document.querySelectorAll('#bank-statement input[type="number"]').forEach(input => {
+    input.addEventListener('input', calculateBankStatement);
+});
+
+// Initial calculation (already present)
+window.addEventListener('DOMContentLoaded', () => {
+    // ...existing code...
+    calculateBankStatement();
+});
