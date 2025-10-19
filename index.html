@@ -5,7 +5,15 @@
     <!-- Force desktop viewport and show message on small screens -->
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Financial Statement Analysis</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/translucent.css">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
@@ -30,98 +38,137 @@
             </div>
         </div>
     </div>
+    
     <header>
-    <h1>Financial Statement Analysis</h1>
-    <div class="subtitle">Made by Abhinav Raj (MBA F.T)</div>
+    <h1><span id="web_name_tip">Financial Statement Analysis</span></h1>
+    <div class="subtitle"><span id="subtitle_tip">Made by Abhinav Raj (MBA F.T)</span></div>
     </header>
+
     <main>
         <section id="income-statement">
-            <h2 style="text-align:center; font-size: 2.5rem; color: #fffde7;">Income Statement</h2>
+            <h2 style="text-align:center; font-size: 3rem; color: #fffde7; margin-top: 5rem;"><span id="income_statement_tip">Income Statement</span></h2>
             <div class="t-account-container">
                 <div class="t-account">
                     <div class="t-account-header">
-                        <span>Trading Account</span>
+                        <span id="trading_account_tip">Trading Account</span>
                     </div>
                     <div class="t-account-body">
                         <div class="t-account-side t-account-debit">
-                            <h3>Debit (Dr.)</h3>
-                            <label>Opening Stock <input type="number" id="openingStock" value="0"></label>
-                            <label>Purchases <input type="number" id="purchases" value="0"></label>
-                            <label>Purchase Returns <input type="number" id="purchaseReturns" value="0"></label>
-                            <label>Direct Wages <input type="number" id="directWages" value="0"></label>
-                            <label>Carriage Inwards <input type="number" id="carriageInwards" value="0"></label>
-                            <label>Power & Fuel <input type="number" id="powerFuel" value="0"></label>
-                            <label>Other Direct Expenses <input type="number" id="otherDirectExpenses" value="0"></label>
+                            <h3><span id="debit_side_tip">Debit (Dr.)</span></h3>
+
+                            <label><span id="opening_stock_tip">Opening Stock</span> <input type="number" id="openingStock" value="0"></label>
+
+                            <label><span id="purchases_tip">Purchases</span> <input type="number" id="purchases" value="0"></label>
+
+                            <label><span id="purchase_returns_tip">Purchase Returns</span> <input type="number" id="purchaseReturns" value="0"></label>
+
+                            <label><span id="direct_wages_tip">Direct Wages</span> <input type="number" id="directWages" value="0"></label>
+
+                            <label><span id="carriage_inwards_tip">Carriage Inwards</span> <input type="number" id="carriageInwards" value="0"></label>
+
+                            <label><span id="power_fuel_tip">Power & Fuel</span> <input type="number" id="powerFuel" value="0"></label>
+
+                            <label><span id="other_direct_expenses_tip">Other Direct Expenses</span> <input type="number" id="otherDirectExpenses" value="0"></label>
+
                             <div class="computed-term direct-expenses">
-                                <span>Total Direct Expenses</span>
+                                <span id="total_direct_expenses_tip">Total Direct Expenses</span>
                                 <input type="number" id="totalDirectExpenses" value="0" readonly>
                             </div>
                             <div class="computed-term net-purchases">
-                                <span>Net Purchases</span>
+                                <span id="net_purchases_tip">Net Purchases</span>
                                 <input type="number" id="netPurchases" value="0" readonly>
                             </div>
                         </div>
+
                         <div class="t-account-side t-account-credit">
-                            <h3>Credit (Cr.)</h3>
-                            <label>Sales <input type="number" id="sales" value="0"></label>
-                            <label>Sales Returns <input type="number" id="salesReturns" value="0"></label>
-                            <label>Closing Stock <input type="number" id="closingStock" value="0"></label>
+                            <h3><span id="credit_side_tip">Credit (Cr.)</span></h3>
+
+                            <label><span id="sales_tip">Sales</span> <input type="number" id="sales" value="0"></label>
+
+                            <label><span id="sales_returns_tip">Sales Returns</span> <input type="number" id="salesReturns" value="0"></label>
+
+                            <label><span id="closing_stock_tip">Closing Stock</span> <input type="number" id="closingStock" value="0"></label>
+
                             <div class="computed-term net-sales">
-                                <span>Net Sales</span>
+                                <span id="net_sales_tip">Net Sales</span>
                                 <input type="number" id="netSales" value="0" readonly>
                             </div>
                         </div>
                     </div>
                     <div class="computed-term cogs">
-                        <span>Cost of Goods Sold (COGS)</span>
+                        <span id="cogs_tip">Cost of Goods Sold (COGS)</span>
                         <input type="number" id="cogs" value="0" readonly>
                     </div>
+
                     <div class="computed-term gross-profit">
-                        <span>Gross Profit</span>
+                        <span id="gross_profit_tip">Gross Profit</span>
                         <input type="number" id="grossProfit" value="0" readonly>
                     </div>
                 </div>
                 <div class="t-account">
                     <div class="t-account-header">
-                        <span>Profit & Loss Account</span>
+                        <span id="profit_loss_tip">Profit & Loss Account</span>
                     </div>
+
                     <div class="t-account-body">
                         <div class="t-account-side t-account-debit">
-                            <h3>Debit (Dr.)</h3>
-                            <label>Salaries <input type="number" id="salaries" value="0"></label>
-                            <label>Rent, Rates & Taxes <input type="number" id="rent" value="0"></label>
-                            <label>Printing & Stationery <input type="number" id="printingStationery" value="0"></label>
-                            <label>Depreciation <input type="number" id="depreciation" value="0"></label>
-                            <label>Insurance <input type="number" id="insurance" value="0"></label>
-                            <label>Postage & Telephone <input type="number" id="postageTelephone" value="0"></label>
-                            <label>Advertising & Selling Expenses <input type="number" id="advertisingSelling" value="0"></label>
-                            <label>Carriage Outwards <input type="number" id="carriageOutwards" value="0"></label>
-                            <label>Discount Allowed <input type="number" id="discountAllowed" value="0"></label>
-                            <label>Bad Debts <input type="number" id="badDebts" value="0"></label>
-                            <label>Provision for Doubtful Debts <input type="number" id="provisionDoubtfulDebts" value="0"></label>
-                            <label>Interest Paid <input type="number" id="interestPaid" value="0"></label>
-                            <label>Other Indirect Expenses <input type="number" id="otherIndirectExpenses" value="0"></label>
+                            <h3><span id="pl_debit_tip">Debit (Dr.)</span></h3>
+
+                            <label><span id="salaries_tip">Salaries</span> <input type="number" id="salaries" value="0"></label>
+
+                            <label><span id="rent_tip">Rent, Rates & Taxes</span> <input type="number" id="rent" value="0"></label>
+
+                            <label><span id="utilities_tip">Printing & Stationery</span> <input type="number" id="printingStationery" value="0"></label>
+
+                            <label><span id="depreciation_tip">Depreciation</span> <input type="number" id="depreciation" value="0"></label>
+
+                            <label><span id="insurance_tip">Insurance</span> <input type="number" id="insurance" value="0"></label>
+
+                            <label><span id="postage_telephone_tip">Postage & Telephone</span> <input type="number" id="postageTelephone" value="0"></label>
+
+                            <label><span id="advertising_selling_tip">Advertising & Selling Expenses</span> <input type="number" id="advertisingSelling" value="0"></label>
+
+                            <label><span id="carriage_outwards_tip">Carriage Outwards</span> <input type="number" id="carriageOutwards" value="0"></label>
+
+                            <label><span id="discount_allowed_tip">Discount Allowed</span> <input type="number" id="discountAllowed" value="0"></label>
+
+                            <label><span id="bad_debts_tip">Bad Debts</span> <input type="number" id="badDebts" value="0"></label>
+
+                            <label><span id="provision_doubtful_debts_tip">Provision for Doubtful Debts</span> <input type="number" id="provisionDoubtfulDebts" value="0"></label>
+
+                            <label><span id="interest_paid_tip">Interest Paid</span> <input type="number" id="interestPaid" value="0"></label>
+
+                            <label><span id="other_indirect_expenses_tip">Other Indirect Expenses</span> <input type="number" id="otherIndirectExpenses" value="0"></label>
+
                             <div class="computed-term indirect-expenses">
-                                <span>Total Indirect Expenses</span>
+                                <span id="total_indirect_tip">Total Indirect Expenses</span>
                                 <input type="number" id="totalIndirectExpenses" value="0" readonly>
                             </div>
                         </div>
                         <div class="t-account-side t-account-credit">
-                            <h3>Credit (Cr.)</h3>
-                            <label>Discount Received <input type="number" id="discountReceived" value="0"></label>
-                            <label>Commission Received <input type="number" id="commissionReceived" value="0"></label>
-                            <label>Interest Received <input type="number" id="interestReceived" value="0"></label>
-                            <label>Dividend Income <input type="number" id="dividendIncome" value="0"></label>
-                            <label>Rent Received <input type="number" id="rentReceived" value="0"></label>
-                            <label>Other Incomes <input type="number" id="otherIncomes" value="0"></label>
+
+                            <h3><span id="credit_tip"></span>Credit (Cr.)</h3>
+
+                            <label><span id="discount_received_tip">Discount Received</span> <input type="number" id="discountReceived" value="0"></label>
+
+                            <label><span id="commission_received_tip">Commission Received</span> <input type="number" id="commissionReceived" value="0"></label>
+
+                            <label><span id="interest_received_tip">Interest Received</span> <input type="number" id="interestReceived" value="0"></label>
+
+                            <label><span id="dividend_income_tip">Dividend Income</span> <input type="number" id="dividendIncome" value="0"></label>
+
+                            <label><span id="rent_received_tip">Rent Received</span> <input type="number" id="rentReceived" value="0"></label>
+
+                            <label><span id="other_incomes_tip">Other Incomes</span> <input type="number" id="otherIncomes" value="0"></label>
+
                         </div>
                     </div>
                     <div class="computed-term operating-profit">
-                        <span>Operating Profit</span>
+                        <span id="operating_profit_tip">Operating Profit</span>
                         <input type="number" id="operatingProfit" value="0" readonly>
                     </div>
                     <div class="computed-term net-profit">
-                        <span>Net Profit</span>
+                        <span id="net_profit_tip">Net Profit</span>
                         <input type="number" id="netProfit" value="0" readonly>
                     </div>
                 </div>
@@ -130,58 +177,61 @@
                 <button id="analyseBtn" class="button">Analyse Income Statement</button>
             </div>
         </section>
-        <!-- Add this after your income statement section, as a new dashboard page -->
+        <!-- dashboard page -->
         <section id="dashboard" style="display:none;">
-            <h2 style="text-align:center; margin-top:2rem;">Financial Dashboard</h2>
+            <h2 style="text-align:center;font-size:3rem; margin-top:10rem;">Financial Dashboard</h2>
             <div class="dashboard-grid">
                 <div class="dashboard-card">
-                    <h3>Net Sales</h3>
+                    <h3><span id="net_sales_tip">Net Sales</span></h3>
                     <div id="dashNetSales" class="dashboard-value"></div>
                 </div>
                 <div class="dashboard-card">
-                    <h3>Net Purchases</h3>
+                    <h3><span id="net_purchases_tip">Net Purchases</span></h3>
                     <div id="dashNetPurchases" class="dashboard-value"></div>
                 </div>
                 <div class="dashboard-card">
-                    <h3>Total Direct Expenses</h3>
+                    <h3><span id="total_direct_expenses_tip">Total Direct Expenses</span></h3>
                     <div id="dashTotalDirectExpenses" class="dashboard-value"></div>
                 </div>
                 <div class="dashboard-card">
-                    <h3>COGS</h3>
+                    <h3><span id="cogs_tip">COGS</span></h3>
                     <div id="dashCOGS" class="dashboard-value"></div>
                 </div>
                 <div class="dashboard-card">
-                    <h3>Gross Profit</h3>
+                    <h3><span id="gross_profit_tip">Gross Profit</span></h3>
                     <div id="dashGrossProfit" class="dashboard-value"></div>
                 </div>
                 <div class="dashboard-card">
-                    <h3>Total Indirect Expenses</h3>
+                    <h3><span id="total_indirect_tip">Total Indirect Expenses</span></h3>
                     <div id="dashTotalIndirectExpenses" class="dashboard-value"></div>
                 </div>
                 <div class="dashboard-card">
-                    <h3>Operating Profit</h3>
+                    <h3><span id="operating_profit_tip">Operating Profit</span></h3>
                     <div id="dashOperatingProfit" class="dashboard-value"></div>
                 </div>
                 <div class="dashboard-card">
-                    <h3>Net Profit</h3>
+                    <h3><span id="net_profit_tip">Net Profit</span></h3>
                     <div id="dashNetProfit" class="dashboard-value"></div>
                 </div>
             </div>
-            <h2 style="text-align:center; margin-top:2rem;">Profitability Ratios</h2>
+            <h2 style="text-align:center;font-size:3rem; margin-top:5rem;"><span id="profitability_ratios_tip">Profitability Ratios</span></h2>
             <div class="dashboard-grid">
                 <div class="dashboard-card">
-                    <h3>Gross Profit Ratio</h3>
+                    <h3><span id="gross_profit_ratio_tip">Gross Profit Ratio</span></h3>
                     <div id="dashGrossProfitRatio" class="dashboard-value"></div>
+                    <div class="formula">Gross Profit % = (Gross Profit / Net Sales) * 100</div>
                     <div id="dashGrossProfitRatioAnalysis" class="dashboard-analysis"></div>
                 </div>
                 <div class="dashboard-card">
-                    <h3>Operating Profit Ratio</h3>
+                    <h3><span id="operating_profit_ratio_tip">Operating Profit Ratio</span></h3>
                     <div id="dashOperatingProfitRatio" class="dashboard-value"></div>
+                    <div class="formula">Operating Profit % = (Operating Profit / Net Sales) * 100</div>
                     <div id="dashOperatingProfitRatioAnalysis" class="dashboard-analysis"></div>
                 </div>
                 <div class="dashboard-card">
-                    <h3>Net Profit Ratio</h3>
+                    <h3><span id="net_profit_ratio_tip">Net Profit Ratio</span></h3>
                     <div id="dashNetProfitRatio" class="dashboard-value"></div>
+                    <div class="formula">Net Profit % = (Net Profit / Net Sales) * 100</div>
                     <div id="dashNetProfitRatioAnalysis" class="dashboard-analysis"></div>
                 </div>
             </div>
@@ -191,73 +241,109 @@
         </section>
         
         <section id="balance-sheet" style="margin-top:10rem;">
-            <h2 style="text-align:center; font-size: 4rem; color: #fffde7;">Balance Sheet</h2>
+            <h2 style="text-align:center; font-size: 4rem; color: #fffde7;"><span id="balance_sheet_tip">Balance Sheet</span></h2>
+
             <div class="balance-sheet-frame">
                 <div class="balance-sheet-t">
                     <!-- Liabilities & Equity Side -->
                     <div class="balance-sheet-side liabilities">
-                        <h3>Liabilities & Equity</h3>
+                        <h3><span id="liabilities_equity_tip">Liabilities & Equity</span></h3>
+
                         <div class="bs-category capital">
                             <div class="bs-category-title">Capital & Reserves</div>
-                            <label>Capital <input type="number" id="bsCapital" value="0"></label>
-                            <label>Reserves & Surplus <input type="number" id="bsReserves" value="0"></label>
-                            <label>Drawings <input type="number" id="bsDrawings" value="0"></label>
+
+                            <label><span id="capital_tip">Capital</span> <input type="number" id="bsCapital" value="0"></label>
+
+                            <label><span id="reserves_tip">Reserves & Surplus</span> <input type="number" id="bsReserves" value="0"></label>
+
+                            <label><span id="drawings_tip">Drawings</span> <input type="number" id="bsDrawings" value="0"></label>
+
                             <div class="bs-subtotal" id="bsNetCapital">Net Capital: <span>0</span></div>
                         </div>
+
                         <div class="bs-category longterm">
                             <div class="bs-category-title">Long-term Debts</div>
-                            <label>Debentures <input type="number" id="bsDebentures" value="0"></label>
-                            <label>Secured Loans <input type="number" id="bsSecuredLoans" value="0"></label>
-                            <label>Unsecured Loans <input type="number" id="bsUnsecuredLoans" value="0"></label>
+
+                            <label><span id="debentures_tip">Debentures</span> <input type="number" id="bsDebentures" value="0"></label>
+
+                            <label><span id="secured_loans_tip">Secured Loans</span> <input type="number" id="bsSecuredLoans" value="0"></label>
+
+                            <label><span id="unsecured_loans_tip">Unsecured Loans</span> <input type="number" id="bsUnsecuredLoans" value="0"></label>
+
                             <div class="bs-subtotal" id="bsTotalLongterm">Total Long-term Debts: <span>0</span></div>
                         </div>
                         <div class="bs-category currentliab">
                             <div class="bs-category-title">Current Liabilities</div>
-                            <label>Sundry Creditors <input type="number" id="bsCreditors" value="0"></label>
-                            <label>Bills Payable <input type="number" id="bsBillsPayable" value="0"></label>
-                            <label>Outstanding Expenses <input type="number" id="bsOutstandingExpenses" value="0"></label>
-                            <label>Bank Overdraft <input type="number" id="bsBankOverdraft" value="0"></label>
-                            <label>Short-term Loans <input type="number" id="bsShortTermLoans" value="0"></label>
-                            <label>Provision for Taxation <input type="number" id="bsProvisionTax" value="0"></label>
-                            <label>Other Current Liabilities <input type="number" id="bsOtherCurrentLiab" value="0"></label>
+
+                            <label><span id="creditors_tip">Sundry Creditors</span> <input type="number" id="bsCreditors" value="0"></label>
+
+                            <label><span id="bills_payable_tip">Bills Payable</span> <input type="number" id="bsBillsPayable" value="0"></label>
+
+                            <label><span id="outstanding_expenses_tip">Outstanding Expenses</span> <input type="number" id="bsOutstandingExpenses" value="0"></label>
+
+                            <label><span id="bank_overdraft_tip">Bank Overdraft</span> <input type="number" id="bsBankOverdraft" value="0"></label>
+
+                            <label><span id="short_term_loans_tip">Short-term Loans</span> <input type="number" id="bsShortTermLoans" value="0"></label>
+
+                            <label><span id="provision_tax_tip">Provision for Taxation</span> <input type="number" id="bsProvisionTax" value="0"></label>
+
+                            <label><span id="other_current_liabilities_tip">Other Current Liabilities</span> <input type="number" id="bsOtherCurrentLiab" value="0"></label>
+
                             <div class="bs-subtotal" id="bsTotalCurrentLiab">Total Current Liabilities: <span>0</span></div>
                         </div>
                     </div>
                     <!-- Assets Side -->
                     <div class="balance-sheet-side assets">
-                        <h3>Assets</h3>
+                        <h3><span id="assets_tip">Assets</span></h3>
                         <div class="bs-category fixed">
                             <div class="bs-category-title">Fixed Assets</div>
-                            <label>Land & Buildings <input type="number" id="bsLandBuildings" value="0"></label>
-                            <label>Plant & Machinery <input type="number" id="bsPlantMachinery" value="0"></label>
-                            <label>Furniture & Fixtures <input type="number" id="bsFurniture" value="0"></label>
-                            <label>Vehicles <input type="number" id="bsVehicles" value="0"></label>
-                            <label>Office Equipment <input type="number" id="bsOfficeEquip" value="0"></label>
-                            <label>Intangible Assets <input type="number" id="bsIntangible" value="0"></label>
-                            <label>Long-term Investments <input type="number" id="bsLongTermInvest" value="0"></label>
+
+                            <label><span id="land_buildings_tip">Land & Buildings</span> <input type="number" id="bsLandBuildings" value="0"></label>
+
+                            <label><span id="plant_machinery_tip">Plant & Machinery</span> <input type="number" id="bsPlantMachinery" value="0"></label>
+
+                            <label><span id="furniture_fixtures_tip">Furniture & Fixtures</span> <input type="number" id="bsFurniture" value="0"></label>
+
+                            <label><span id="vehicles_tip">Vehicles</span> <input type="number" id="bsVehicles" value="0"></label>
+
+                            <label><span id="office_equipment_tip">Office Equipment</span> <input type="number" id="bsOfficeEquip" value="0"></label>
+
+                            <label><span id="intangible_assets_tip">Intangible Assets</span> <input type="number" id="bsIntangible" value="0"></label>
+
+                            <label><span id="long_term_investments_tip">Long-term Investments</span> <input type="number" id="bsLongTermInvest" value="0"></label>
+
                             <div class="bs-subtotal" id="bsTotalFixed">Total Fixed Assets: <span>0</span></div>
                         </div>
                         <div class="bs-category currentassets">
-                            <div class="bs-category-title">Current Assets</div>
-                            <label>Inventory (Closing Stock) <input type="number" id="bsInventory" value="0"></label>
-                            <label>Sundry Debtors <input type="number" id="bsDebtors" value="0"></label>
-                            <label>Bills Receivable <input type="number" id="bsBillsReceivable" value="0"></label>
-                            <label>Cash in Hand <input type="number" id="bsCashHand" value="0"></label>
-                            <label>Cash at Bank <input type="number" id="bsCashBank" value="0"></label>
-                            <label>Prepaid Expenses <input type="number" id="bsPrepaid" value="0"></label>
-                            <label>Accrued Income <input type="number" id="bsAccruedIncome" value="0"></label>
-                            <label>Short-term Investments <input type="number" id="bsShortTermInvest" value="0"></label>
+                            <div class="bs-category-title" id="current_assets_tip">Current Assets</div>
+
+                            <label><span id="inventory_tip">Inventory (Closing Stock)</span> <input type="number" id="bsInventory" value="0"></label>
+
+                            <label><span id="sundry_debtors_tip">Sundry Debtors</span> <input type="number" id="bsDebtors" value="0"></label>
+
+                            <label><span id="bills_receivable_tip">Bills Receivable</span> <input type="number" id="bsBillsReceivable" value="0"></label>
+
+                            <label><span id="cash_in_hand_tip">Cash in Hand</span> <input type="number" id="bsCashHand" value="0"></label>
+
+                            <label><span id="cash_at_bank_tip">Cash at Bank</span> <input type="number" id="bsCashBank" value="0"></label>
+
+                            <label><span id="prepaid_expenses_tip">Prepaid Expenses</span> <input type="number" id="bsPrepaid" value="0"></label>
+
+                            <label><span id="accrued_income_tip">Accrued Income</span> <input type="number" id="bsAccruedIncome" value="0"></label>
+
+                            <label><span id="short_term_investments_tip">Short-term Investments</span> <input type="number" id="bsShortTermInvest" value="0"></label>
+
                             <div class="bs-subtotal" id="bsTotalCurrentAssets">Total Current Assets: <span>0</span></div>
                         </div>
                     </div>
                 </div>
                 <div class="bs-totals-row">
                     <div class="bs-total-liab">
-                        <span>Total Liabilities & Equity</span>
+                        <span id="total_liabilities_tip">Total Liabilities & Equity</span>
                         <input type="number" id="bsTotalLiabilities" value="0" readonly>
                     </div>
                     <div class="bs-total-assets">
-                        <span>Total Assets</span>
+                        <span id="total_assets_tip">Total Assets</span>
                         <input type="number" id="bsTotalAssets" value="0" readonly>
                     </div>
                 </div>
@@ -268,95 +354,129 @@
         </section>
 
         <section id="bs-ratio-dashboard" style="display:none;">
-            <h2 style="text-align:center; margin-top:5rem;">Liquidity Ratios</h2>
+            <h2 style="text-align:center; font-size:3rem; margin-top:15rem;"><span id="liquidity_ratios_tip">Liquidity Ratios</span></h2>
+
             <div class="liquidity-grid">
+
                 <div class="liquidity-card" id="currentRatioCard">
-                    <div class="liquidity-title">Current Ratio</div>
+                    <div class="liquidity-title"><span id="current_ratio_tip">Current Ratio</span></div>
                     <div class="liquidity-value" id="currentRatioValue"></div>
+                    <div class="formula">Current Ratio = Current Assets / Current Liabilities</div>
                     <div class="liquidity-analysis" id="currentRatioAnalysis"></div>
                 </div>
+
                 <div class="liquidity-card" id="quickRatioCard">
-                    <div class="liquidity-title">Quick Ratio</div>
+                    <div class="liquidity-title"><span id="quick_ratio_tip">Quick Ratio</span></div>
                     <div class="liquidity-value" id="quickRatioValue"></div>
+                    <div class="formula">Quick Ratio = Quick Assets / Current Liabilities<hr>*Quick Assets = Current Assets - Inventory - Prepaid</div>
                     <div class="liquidity-analysis" id="quickRatioAnalysis"></div>
                 </div>
+
                 <div class="liquidity-card" id="cashRatioCard">
-                    <div class="liquidity-title">Cash Ratio</div>
+                    <div class="liquidity-title"><span id="cash_ratio_tip">Cash Ratio</span></div>
                     <div class="liquidity-value" id="cashRatioValue"></div>
+                    <div class="formula">Cash Ratio = Cash Assets / Current Liabilities<hr>*Cash Assets = Cash in Hand + Cash in Bank + Short Term Investment</div>
                     <div class="liquidity-analysis" id="cashRatioAnalysis"></div>
                 </div>
+
                 <div class="liquidity-card" id="workingCapitalCard">
-                    <div class="liquidity-title">Working Capital</div>
+                    <div class="liquidity-title"><span id="working_capital_tip">Working Capital</span></div>
                     <div class="liquidity-value" id="workingCapitalValue"></div>
+                    <div class="formula">Working Capital = Current Assets - Current Liabilities</div>
                     <div class="liquidity-analysis" id="workingCapitalAnalysis"></div>
                 </div>
+
                 <div class="liquidity-card" id="inventoryWCcard">
-                    <div class="liquidity-title">Inventory to Working Capital Ratio</div>
+                    <div class="liquidity-title"><span id="inventory_wc_tip">Inventory to Working Capital Ratio</span></div>
                     <div class="liquidity-value" id="inventoryWCValue"></div>
+                    <div class="formula">IWCR = Inventory / Working Capital</div>
                     <div class="liquidity-analysis" id="inventoryWCAnalysis"></div>
                 </div>
             </div>
-            <h2 style="text-align:center; margin-top:5rem;">Solvency Ratios</h2>
+
+            <h2 style="text-align:center; font-size:3rem; margin-top:10rem;"><span id="solvency_ratios_tip">Solvency Ratios</span></h2>
             <div class="solvency-grid">
                 <div class="solvency-card" id="debtEquityCard">
-                    <div class="solvency-title">Debt to Equity Ratio</div>
+                    <div class="solvency-title"><span id="debt_equity_tip">Debt to Equity Ratio</span></div>
                     <div class="solvency-value" id="debtEquityValue"></div>
+                    <div class="formula">Debt to Equity = Total Debt / Shareholder's Equity<hr>*Total Debt = Total Longterm Debt + Total Current Liabilities</div>
                     <div class="solvency-analysis" id="debtEquityAnalysis"></div>
                 </div>
+
                 <div class="solvency-card" id="debtRatioCard">
-                    <div class="solvency-title">Debt Ratio</div>
+                    <div class="solvency-title"><span id="debt_ratio_tip">Debt Ratio</span></div>
                     <div class="solvency-value" id="debtRatioValue"></div>
+                    <div class="formula">Debt Ratio = Total Debt / Total Assets</div>
                     <div class="solvency-analysis" id="debtRatioAnalysis"></div>
                 </div>
+
                 <div class="solvency-card" id="proprietaryRatioCard">
-                    <div class="solvency-title">Proprietary Ratio</div>
+                    <div class="solvency-title"><span id="proprietary_ratio_tip">Proprietary Ratio</span></div>
                     <div class="solvency-value" id="proprietaryRatioValue"></div>
+                    <div class="formula">Proprietary Ratio = Shareholder's Equity / Total Assets</div>
                     <div class="solvency-analysis" id="proprietaryRatioAnalysis"></div>
                 </div>
+
                 <div class="solvency-card" id="fixedAssetsRatioCard">
-                    <div class="solvency-title">Fixed Assets Ratio</div>
+                    <div class="solvency-title"><span id="fixed_assets_ratio_tip">Fixed Assets Ratio</span></div>
                     <div class="solvency-value" id="fixedAssetsRatioValue"></div>
+                    <div class="formula">Fixed Assets Ratio = Fixed Assets / Longterm Funds<hr>*Longterm Funds = Shareholder's Equity + Longterm Debt</div>
                     <div class="solvency-analysis" id="fixedAssetsRatioAnalysis"></div>
                 </div>
             </div>
-            <h2 style="text-align:center; margin-top:5rem;">Turnover Ratios</h2>
+
+            <h2 style="text-align:center; font-size:3rem; margin-top:10rem;"><span id="turnover_ratios_tip">Turnover Ratios</span></h2>
             <div class="turnover-grid">
                 <div class="turnover-card">
-                    <div class="turnover-title">Fixed Assets Turnover Ratio</div>
+                    <div class="turnover-title"><span id="fixed_assets_turnover_tip">Fixed Assets Turnover Ratio</span></div>
                     <div class="turnover-value" id="fixedAssetsTurnoverValue"></div>
+                    <div class="formula">Fixed Assets Turnover Ratio = Net Sales / Fixed Assets</div>
                     <div class="turnover-analysis" id="fixedAssetsTurnoverAnalysis"></div>
                 </div>
+
                 <div class="turnover-card">
-                    <div class="turnover-title">Working Capital Turnover Ratio</div>
+                    <div class="turnover-title"><span id="working_capital_turnover_tip">Working Capital Turnover Ratio</span></div>
                     <div class="turnover-value" id="workingCapitalTurnoverValue"></div>
+                    <div class="formula">Working Capital Turnover Ratio = Net Sales OR COGS / Working Capital</div>
                     <div class="turnover-analysis" id="workingCapitalTurnoverAnalysis"></div>
                 </div>
+
                 <div class="turnover-card">
-                    <div class="turnover-title">Capital Turnover Ratio</div>
+                    <div class="turnover-title"><span id="capital_turnover_tip">Capital Turnover Ratio</span></div>
                     <div class="turnover-value" id="capitalTurnoverValue"></div>
+                    <div class="formula">Capital Turnover Ratio = COGS / Capital Employed(Shareholder's Fund)</div>
                     <div class="turnover-analysis" id="capitalTurnoverAnalysis"></div>
                 </div>
+
                 <div class="turnover-card">
-                    <div class="turnover-title">Creditors Turnover Ratio</div>
-                    <label>Cash Purchases <input type="number" id="cashPurchases" value="0"></label>
+                    <div class="turnover-title"><span id="creditors_turnover_tip">Creditors Turnover Ratio</span></div>
+                    <label><span id="cash_purchases_tip">Cash Purchases</span> <input type="number" id="cashPurchases" value="0"></label>
                     <div class="turnover-value" id="creditorsTurnoverValue"></div>
+                    <div class="formula">Creditors Turnover Ratio = Credit Purchases / Avg Creditors<hr>*Credit Purchases = Net Purchases - Cash Purchases<hr>*Avg Creditors = (Creditors + Bills Payable) / 2</div>
                     <div class="turnover-analysis" id="creditorsTurnoverAnalysis"></div>
-                    <div class="turnover-title">Average Payment Period (days)</div>
+                    <hr>
+                    <div class="turnover-title"><span id="avg_payment_period_tip">Average Payment Period (days)</span></div>
                     <div class="turnover-value" id="avgPaymentPeriodValue"></div>
                 </div>
+
                 <div class="turnover-card">
-                    <div class="turnover-title">Debtors Turnover Ratio</div>
-                    <label>Cash Sales <input type="number" id="cashSales" value="0"></label>
+                    <div class="turnover-title"><span id="debtors_turnover_tip">Debtors Turnover Ratio</span></div>
+                    <label><span id="cash_sales_tip">Cash Sales</span> <input type="number" id="cashSales" value="0"></label>
                     <div class="turnover-value" id="debtorsTurnoverValue"></div>
+                    <div class="formula">Debtors Turnover Ratio = Credit Sales / Avg Debtors<hr>*Credit Sales = Net Sales - Cash Sales<hr>*Avg Debtors = (Debtors + Bills Receivable) / 2</div>
                     <div class="turnover-analysis" id="debtorsTurnoverAnalysis"></div>
-                    <div class="turnover-title">Average Collection Period (days)</div>
+                    <hr>
+                    <div class="turnover-title"><span id="avg_collection_period_tip">Average Collection Period (days)</span></div>
                     <div class="turnover-value" id="avgCollectionPeriodValue"></div>
                 </div>
+
                 <div class="turnover-card">
-                    <div class="turnover-title">Stock Turnover Ratio</div>
+                    <div class="turnover-title"><span id="inventory_turnover_tip">Inventory Turnover Ratio</span></div>
                     <div class="turnover-value" id="stockTurnoverValue"></div>
+                    <div class="formula">Stock Turnover Ratio = COGS / Avg Stock<hr>*Avg Stock = (Opening Stock + Closing Stock) / 2</div>
                     <div class="turnover-analysis" id="stockTurnoverAnalysis"></div>
-                    <div class="turnover-title">Average Age of Inventory (days)</div>
+                    <hr>
+                    <div class="turnover-title"><span id="avg_age_inventory_tip">Average Age of Inventory (days)</span></div>
                     <div class="turnover-value" id="avgAgeInventoryValue"></div>
                 </div>
             </div>
@@ -575,7 +695,7 @@
             </div>
         </section>
 
-        <!-- Add this section after the bank statement form, before </main> -->
+        
         <section id="bank-performance-dashboard" style="display:none;">
             <h2 style="text-align:center; font-size: 3rem; color: #fffde7; margin-top: 10rem;">Bank Performance Ratios</h2>
             <div class="bank-performance-grid">
@@ -661,10 +781,41 @@
                 <button id="backBankPerformanceBtn" class="button">Back</button>
             </div>
         </section>
+
+        <!-- Floating Circular Buttons -->
+        <div class="floating-buttons">
+            <div class="circle-btn" id="income-button">
+                <img src="profit.gif" alt="Income Statement">
+            </div>
+            <div class="circle-btn" id="balance-button">
+                <img src="investment.gif" alt="Balance Sheet">
+            </div>
+            <div class="circle-btn" id="bank-button">
+            <img src="bank.gif" alt="Bank Statement">
+            </div>
+        </div>
     </main>
     <footer>
-        
+        <div style="text-align:center; margin-top: 2rem;">
+            <p>Total Visits: <span id="visit-count">0</span></p>
+        </div>
+        <p style="text-align:center; margin-bottom:10px;">&copy; 2025 Financial Analysis Website. All rights reserved.</p>
     </footer>
-    <script src="main.js"></script>
+
+    <script>
+        const counterId = 'https://financial-statement-analyser.vercel.app/';
+
+        fetch('https://api.countapi.xyz/hit/${counterId}/visits')
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('visit-count').innerText = data.value;
+        })
+        .catch(err => {
+            console.error('Error fetching visit count:', err);
+        });
+    </script>
+
+    <script src="js/tooltips.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

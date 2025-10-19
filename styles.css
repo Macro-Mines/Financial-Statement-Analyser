@@ -23,6 +23,12 @@ header h1 {
     font-size: 4rem;
 }
 
+
+#web_name:hover {
+    color: #bbdefb;
+    cursor: help;
+}
+
 header .subtitle {
     margin-top: 8px;
     font-size: 1.5em;
@@ -30,6 +36,7 @@ header .subtitle {
     font-weight: 600;
     letter-spacing: 1px;
     text-shadow: none;
+    cursor: help;
 }
 
 h1 {
@@ -51,7 +58,8 @@ h1 {
     position: relative;
     width: 100%;
     font-size: 1.1em;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    margin-top: 15rem;
 }
 
 .card {
@@ -227,8 +235,6 @@ h1 {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     margin: 2rem 0;
-
-
     background: linear-gradient(135deg, #7636eea9 0%, #1d013b 100%);
     border-radius: 18px;
     box-shadow: 0 8px 32px rgba(31,38,135,0.13), 0 2px 8px rgba(31,38,135,0.07);
@@ -270,7 +276,7 @@ h1 {
 .dashboard-card h3 {
     font-family: 'Fira Mono', 'Consolas', monospace;
     font-weight: bold;
-    font-size: 1.15em;
+    font-size: 1.3em;
     color: #1976d2;
     margin-bottom: 1rem;
     letter-spacing: 1px;
@@ -440,7 +446,7 @@ h1 {
 
 .liquidity-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 2rem;
     margin: 2rem 0;
 
@@ -481,7 +487,7 @@ h1 {
 .liquidity-title {
     font-family: 'Fira Mono', 'Consolas', monospace;
     font-weight: bold;
-    font-size: 1.15em;
+    font-size: 1.3em;
     color: #00838f;
     margin-bottom: 1rem;
     letter-spacing: 1px;
@@ -554,7 +560,7 @@ h1 {
 .solvency-title {
     font-family: 'Fira Mono', 'Consolas', monospace;
     font-weight: bold;
-    font-size: 1.15em;
+    font-size: 1.3em;
     color: #512da8;
     margin-bottom: 1rem;
     letter-spacing: 1px;
@@ -587,7 +593,7 @@ h1 {
 
 .turnover-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
     gap: 2rem;
     margin: 2rem 0;
 
@@ -629,7 +635,7 @@ h1 {
 .turnover-title {
     font-family: 'Fira Mono', 'Consolas', monospace;
     font-weight: bold;
-    font-size: 1.08em;
+    font-size: 1.3em;
     color: #1976d2;
     margin-bottom: 0.7rem;
     letter-spacing: 1px;
@@ -661,14 +667,14 @@ h1 {
 }
 
 .turnover-card label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 0.5rem;
     font-size: 1em;
-    color: #333;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    color: #1976d2;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    gap: 0.5rem;
 }
 
 .turnover-card input[type="number"] {
@@ -680,6 +686,7 @@ h1 {
     font-size: 1em;
     font-family: 'Fira Mono', 'Consolas', monospace;
 }
+
 
 
 
@@ -859,7 +866,7 @@ h1 {
 
 
 
-/* Add these classes at the end of the existing file */
+
 
 .bank-statement-frame {
     background: linear-gradient(135deg, #090979 40%, #a200ff 100%);
@@ -1006,7 +1013,7 @@ h1 {
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 2rem;
     margin: 2rem 0;
-    background: linear-gradient(135deg, #a200ff 0%, #00d4ff 100%);
+    background: linear-gradient(135deg, #a201ff 0%, #270152 100%);
     border-radius: 18px;
     box-shadow: 0 8px 32px rgba(31,38,135,0.13), 0 2px 8px rgba(31,38,135,0.07);
     padding: 2rem 1.2rem;
@@ -1063,11 +1070,10 @@ h1 {
     color: #222;
     margin-bottom: 0.5rem;
     background: rgba(255,255,255,0.7);
-    padding: 8px;
+    padding: 8px 18px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(31,38,135,0.07);
     text-align: center;
-    width: 100%;
 }
 
 .bank-performance-formula {
@@ -1080,6 +1086,7 @@ h1 {
     border-radius: 8px;
     box-shadow: 0 1px 4px rgba(31,38,135,0.05);
     text-align: center;
+    line-height: 1.5em;
     width: 100%;
 }
 
@@ -1118,6 +1125,8 @@ h1 {
     width: 100%;
 }
 
+
+
 /* Design for Back button in Bank Performance Dashboard */
 #backBankPerformanceBtn.button {
     background: linear-gradient(90deg, #fbc02d 0%, #ff9800 100%);
@@ -1147,3 +1156,66 @@ h1 {
     box-shadow: 0 8px 32px rgba(251,192,45,0.22);
     transform: translateY(-2px) scale(1.04);
 }
+
+
+
+
+
+.formula {
+    font-size: 1em;
+    color: #00838f;
+    margin-bottom: 0.7rem;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    background: rgba(255,255,255,0.6);
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(31,38,135,0.05);
+    text-align: center;
+    line-height: 1.5em;
+}
+
+
+
+
+
+
+ /* Container for floating circular buttons */
+  .floating-buttons {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+  }
+
+  /* Individual circular button */
+  .circle-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: white; /* matches your GIF background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  /* Hover effect */
+  .circle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(75, 2, 244, 0.3);
+  }
+
+  /* Inside GIF styling */
+  .circle-btn img {
+    width:80%;
+    height: 80%;
+    object-fit: contain;
+    border-radius: 50%;
+    background-color: white; /* helps blend the GIF’s white background */
+  }

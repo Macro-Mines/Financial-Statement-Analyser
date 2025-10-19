@@ -437,7 +437,7 @@ document.getElementById('analyseBalanceSheetBtn').addEventListener('click', () =
 
 
 
-// Add at the end of main.js
+
 function calculateBankStatement() {
     // Calculate Total Deposits
     const demandDeposits = +document.getElementById('demandDeposits').value;
@@ -575,9 +575,9 @@ document.querySelectorAll('#bank-statement input[type="number"]').forEach(input 
 
 // Initial calculation (already present)
 window.addEventListener('DOMContentLoaded', () => {
-    // ...existing code...
     calculateBankStatement();
 });
+
 
 
 function getBankStatementData() {
@@ -675,4 +675,25 @@ document.getElementById('exportPDFBtn').addEventListener('click', () => {
 document.getElementById('downloadPdfIcon').addEventListener('click', function(e) {
     e.stopPropagation();
     document.getElementById('exportPDFBtn').click();
+});
+
+
+
+// Buttons Functions
+document.getElementById('income-button').addEventListener('click', () => {
+    document.getElementById('income-statement').style.display = 'block';
+    document.getElementById('dashboard').style.display = 'none';
+    document.getElementById('income-statement').scrollIntoView({behavior:"smooth"});
+});
+
+document.getElementById('balance-button').addEventListener('click', () => {
+    document.getElementById('balance-sheet').style.display = 'block';
+    document.getElementById('bs-ratio-dashboard').style.display = 'none';
+    document.getElementById('balance-sheet').scrollIntoView({behavior:"smooth"});
+});
+
+document.getElementById('bank-button').addEventListener('click', () => {
+    document.getElementById('bank-statement').style.display = 'block';
+    document.getElementById('bank-performance-dashboard').style.display = 'none';
+    document.getElementById('bank-statement').scrollIntoView({behavior:"smooth"});
 });
