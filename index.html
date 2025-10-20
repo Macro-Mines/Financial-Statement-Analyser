@@ -803,9 +803,8 @@
     </footer>
 
     <script>
-        const counterId = 'https://financial-statement-analyser.vercel.app/';
-
-        fetch('https://api.countapi.xyz/hit/${counterId}/visits')
+        const counterId = 'financial-statement-analyser'; // Unique ID for the counter
+        fetch(`https://api.countapi.xyz/hit/${counterId}/visits`)
         .then(res => res.json())
         .then(data => {
             document.getElementById('visit-count').innerText = data.value;
