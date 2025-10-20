@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script async src="https://api.countapi.xyz/hit/financial-statement-analyser.vercel.app/visits?callback=callbackName"></script>
 </head>
 <body>
     <div id="desktop-only-message">
@@ -797,21 +798,15 @@
     </main>
     <footer>
         <div style="text-align:center; margin-top: 2rem;">
-            <p>Total Visits: <span id="visit-count">0</span></p>
+            <p>Total Visits: <span id="visits">0</span></p>
         </div>
         <p style="text-align:center; margin-bottom:10px;">&copy; 2025 Financial Analysis Website. All rights reserved.</p>
     </footer>
 
     <script>
-        const counterId = 'financial-statement-analyser'; // Unique ID for the counter
-        fetch(`https://api.countapi.xyz/hit/${counterId}/visits`)
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById('visit-count').innerText = data.value;
-        })
-        .catch(err => {
-            console.error('Error fetching visit count:', err);
-        });
+        function callbackName(response) {
+            document.getElementById('visits').innerText = response.value;
+        }
     </script>
 
     <script src="tooltips.js"></script>
