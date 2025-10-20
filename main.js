@@ -697,3 +697,32 @@ document.getElementById('bank-button').addEventListener('click', () => {
     document.getElementById('bank-performance-dashboard').style.display = 'none';
     document.getElementById('bank-statement').scrollIntoView({behavior:"smooth"});
 });
+
+
+
+
+// Initialize particles.js (safe — checks for library)
+function initParticles() {
+    if (!window.particlesJS) return;
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#ffffff" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 1 },
+            "size": { "value": 3, "random": true },
+            "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
+            "move": { "enable": true, "speed": 3, "out_mode": "out" }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+            "modes": { "grab": { "distance": 150, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
+        },
+        "retina_detect": true
+    });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    initParticles();
+});

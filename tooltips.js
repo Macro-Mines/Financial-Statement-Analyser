@@ -617,4 +617,199 @@ tippy('#avg_age_inventory_tip', {
 });
 
 
+// Bank Consolidated Financial Statements Tip
+tippy('#bank_financial_statement_tip', {
+        content: '<strong>Bank Consolidated Financial Statements</strong> : A comprehensive financial report that consolidates all financial activities of a bank, including its assets, liabilities, income, and expenses, providing a holistic view of the bank\'s financial health.',
+});
+
+//bank_capital_tip
+tippy('#bank_capital_tip', {
+        content: '<strong>Bank Capital</strong> : The financial resources that a bank uses to absorb losses and support its operations, typically represented by the shareholders\' equity in the bank.',
+});
+
+// reserves_surplus_tip
+tippy('#reserves_surplus_tip', {
+        content: '<strong>Reserves & Surplus</strong> : The accumulated profits and retained earnings of a bank that are set aside for future growth, contingencies, or to meet regulatory requirements, reflecting the bank\'s financial strength and stability.',
+});
+
+
+// deposits_tip
+tippy('#deposits_tip', {
+        content: '<strong>Deposits</strong> : The total amount of money held by a bank from its customers, representing a liability for the bank as it owes this money to depositors.',
+});
+
+// demand_deposits_tip
+tippy('#demand_deposits_tip', {
+        content: '<strong>Demand Deposits</strong> : Funds deposited in a bank account that can be withdrawn by the account holder at any time without prior notice, typically including checking accounts.',
+});
+
+// savings_deposits_tip
+tippy('#savings_deposits_tip', {
+        content: '<strong>Savings Deposits</strong> : Funds deposited in a bank account that earn interest and are intended for long-term savings, typically including savings accounts.',
+});
+
+// term_deposits_tip
+tippy('#term_deposits_tip', {
+        content: '<strong>Term Deposits</strong> : Funds deposited in a bank account for a fixed period of time, earning a higher interest rate compared to demand or savings deposits, typically including certificates of deposit (CDs).',
+});
+
+// total_deposits_tip
+tippy('#total_deposits_tip', {
+        content: '<strong>Total Deposits</strong> : The sum of all types of deposits held by a bank, including demand, savings, and term deposits, representing the total liability of the bank to its depositors.',
+});
+
+// borrowings_tip
+tippy('#borrowings_tip', {
+        content: '<strong>Borrowings</strong> : The total amount of money that a bank has borrowed from other financial institutions or the central bank, representing a liability for the bank.',
+});
+
+// other_liabilities_tip
+tippy('#other_liabilities_tip', {
+        content: '<strong>Other Liabilities</strong> : Miscellaneous financial obligations of a bank that do not fall under specific categories, representing additional liabilities on the bank\'s balance sheet.',
+});
+
+// total_bank_liabilities_tip
+tippy('#total_bank_liabilities_tip', {
+        content: '<strong>Total Liabilities</strong> : The sum of all financial obligations or debts owed by a bank to external parties, including deposits, borrowings, and other liabilities.',
+});
+
+// bank_assets_tip
+tippy('#bank_assets_tip', {
+        content: '<strong>Bank Assets</strong> : Resources owned by a bank that have economic value and can provide future benefits, classified as current or non-current based on their liquidity.',
+});
+
+// cash_rbi_tip
+tippy('#cash_rbi_tip', {
+        content: '<strong>Cash Reserve Ratio (CRR)</strong> : The percentage of a bank\'s total deposits that must be held in reserve with the central bank (RBI) as cash, to ensure liquidity and stability in the banking system.',
+});
+
+// balance_with_banks_tip
+tippy('#balance_with_banks_tip', {
+        content: '<strong>Balance with Banks</strong> : The total amount of funds that a bank holds in accounts with other banks, representing a current asset for the bank.',
+});
+
+// investments_tip
+tippy('#investments_tip', {
+        content: '<strong>Investments</strong> : Financial assets held by a bank for the purpose of generating income or capital appreciation, classified as current or non-current based on their liquidity.',
+});
+
+// loans_advances_tip
+tippy('#loans_advances_tip', {
+        content: '<strong>Loans & Advances</strong> : The total amount of money that a bank has lent to its customers, representing a current asset for the bank.',
+});
+
+// other_assets_tip
+tippy('#other_assets_tip', {
+        content: '<strong>Other Assets</strong> : Miscellaneous resources owned by a bank that do not fall under specific categories, representing additional assets on the bank\'s balance sheet.',
+});
+
+// bank_fixed_assets_tip
+tippy('#bank_fixed_assets_tip', {
+        content: '<strong>Bank Fixed Assets</strong> : Long-term tangible assets owned by a bank, such as buildings and equipment, used in the bank\'s operations.',
+});
+
+// total_bank_assets_tip
+tippy('#total_bank_assets_tip', {
+        content: '<strong>Total Assets</strong> : The sum of all resources owned by a bank that have economic value and can provide future benefits, classified as current or non-current based on their liquidity.',
+});
+
+// bank_income_statement_tip
+tippy('#bank_income_statement_tip', {
+        content: '<strong>Bank Income Statement</strong> : A financial statement that summarizes a bank\'s revenues, expenses, and profits/losses over a specific period, providing insights into its operational performance and profitability.',
+});
+
+// interest_earned_tip
+tippy('#interest_earned_tip', {
+        content: '<strong>Interest Earned</strong> : The income generated from a bank\'s interest-bearing assets, such as loans and investments, representing a key component of the bank\'s revenue.',
+});
+
+// interest_expended_tip
+tippy('#interest_expended_tip', {
+        content: '<strong>Interest Expended</strong> : The cost incurred by a bank for its interest-bearing liabilities, such as deposits and borrowings, representing a key component of the bank\'s expenses.',
+});
+
+// other_income_tip
+tippy('#other_income_tip', {
+        content: '<strong>Other Income</strong> : Miscellaneous income earned by a bank that does not fit into the standard categories of revenue, providing insight into additional revenue streams.',
+});
+
+// operating_expenses_tip
+tippy('#operating_expenses_tip', {
+        content: '<strong>Operating Expenses</strong> : The total costs incurred by a bank in its day-to-day operations, including salaries, rent, utilities, and other administrative expenses.',
+});
+
+// total_income_tip
+tippy('#total_income_tip', {
+        content: '<strong>Total Income</strong> : The sum of all revenues earned by a bank during a specific period, including interest earned and other income.',
+});
+
+// total_expenses_tip
+tippy('#total_expenses_tip', {
+        content: '<strong>Total Expenses</strong> : The sum of all costs incurred by a bank during a specific period, including interest expended and operating expenses.',
+});
+
+// net_profit_bank_tip
+tippy('#net_profit_bank_tip', {
+        content: '<strong>Net Profit</strong> : The profit remaining after all expenses, including interest expended and operating expenses, have been deducted from total income, reflecting the bank\'s overall profitability.',
+});
+
+//net_interest_income_tip
+tippy('#net_interest_income_tip', {
+        content: '<strong>Net Interest Income</strong> : The difference between the interest earned on a bank\'s interest-bearing assets and the interest expended on its interest-bearing liabilities, reflecting the bank\'s core profitability from its lending and borrowing activities.',
+});
+
+//download_bank_report_tip
+tippy('#download_bank_report_tip', {
+        content: '<strong>Download Bank Report</strong> : Click to download a comprehensive report of the bank\'s consolidated financial statements, including its balance sheet and income statement, in PDF format for offline review and analysis.',
+});
+
+//analyse_bank_statement_button_tip
+tippy('#analyseBankBtn', {
+        content: '<strong>Analyse Bank Statement</strong> : Click to analyze the bank\'s consolidated financial statements based on the provided data, generating insights into the bank\'s financial health and operational performance.',
+});
+
+// bank_performance_ratios_tip
+tippy('#bank_ratios_tip', {
+        content: '<strong>Bank Performance Ratios</strong> : Key financial metrics used to evaluate a bank\'s profitability, efficiency, and stability, including ratios like Return on Assets (ROA) and Return on Equity (ROE).',
+});
+
+//interest_income_percent_tip
+tippy('#interest_income_percent_tip', {
+        content: '<strong>Interest Income Percentage</strong> : A financial metric that indicates the proportion of a bank\'s total income that is derived from interest earned on its interest-bearing assets, calculated as (Interest Earned / Total Income) * 100.',
+});
+
+//net_interest_income_percent_tip
+tippy('#net_interest_income_percent_tip', {
+        content: '<strong>Net Interest Income Percentage</strong> : A financial metric that indicates the proportion of a bank\'s total income that is derived from its net interest income, calculated as (Net Interest Income / Total Income) * 100.',
+});
+
+//net_profit_margin_percent_tip
+tippy('#net_profit_margin_percent_tip', {
+        content: '<strong>Net Profit Margin Percentage</strong> : A financial metric that indicates the proportion of a bank\'s net profit to its total income, calculated as (Net Profit / Total Income) * 100.',
+});
+
+//net_interest_margin_tip
+tippy('#net_interest_margin_tip', {
+        content: '<strong>Net Interest Margin</strong> : A financial metric that indicates the difference between the interest income generated by banks and the amount of interest paid out to their depositors, relative to the total assets, calculated as (Net Interest Income / Total Assets) * 100.',
+});
+
+//total_business_tip
+tippy('#total_business_tip', {
+        content: '<strong>Total Business</strong> : A financial metric that represents the sum of a bank\'s total deposits and total advances, indicating the overall scale of the bank\'s operations.',
+});
+
+//casa_ratio_tip
+tippy('#casa_ratio_tip', {
+        content: '<strong>CASA Ratio</strong> : A financial metric that indicates the proportion of a bank\'s total deposits that are held in Current and Savings Accounts (CASA), calculated as (CASA Deposits / Total Deposits) * 100, reflecting the bank\'s cost of funds and liquidity position.',
+});
+
+//loans_to_deposits_ratio_tip
+tippy('#loans_to_deposits_ratio_tip', {
+        content: '<strong>Loans to Deposits Ratio</strong> : A financial metric that indicates the proportion of a bank\'s total deposits that have been lent out as loans, calculated as (Total Loans / Total Deposits) * 100, reflecting the bank\'s liquidity and lending practices.',
+});
+
+//capital_adequacy_ratio_tip
+tippy('#capital_adequacy_ratio_tip', {
+        content: '<strong>Capital Adequacy Ratio</strong> : A financial metric that indicates the proportion of a bank\'s capital to its risk-weighted assets, calculated as (Total Capital / Risk-Weighted Assets) * 100, reflecting the bank\'s ability to absorb losses and maintain solvency.',
+});
 
