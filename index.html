@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script async src="https://api.countapi.xyz/hit/financial-statement-analyser.vercel.app/visits?callback=callbackName"></script>
 </head>
 <body>
     <div id="desktop-only-message">
@@ -798,16 +797,31 @@
     </main>
     <footer>
         <div style="text-align:center; margin-top: 2rem;">
-            <p>Total Visits: <span id="visits">0</span></p>
+            <p>Total Visits: <span id="count">0</span></p>
         </div>
         <p style="text-align:center; margin-bottom:10px;">&copy; 2025 Financial Analysis Website. All rights reserved.</p>
     </footer>
 
     <script>
-        function callbackName(response) {
-            document.getElementById('visits').innerText = response.value;
-        }
-    </script>
+  const countElement = document.getElementById('count');
+
+  update();
+
+  function update() {
+    // encode your domain safely so CountAPI accepts it as a namespace
+    const namespace = encodeURIComponent('https://financial-statement-analyser.vercel.app/');
+    const key = 'visits';
+
+    fetch(`https://api.countapi.xyz/update/${namespace}/${key}/?amount=1`)
+      .then(res => res.json())
+      .then(res => {
+        countElement.innerHTML = res.value;
+      })
+      .catch(err => {
+        console.error('Error fetching visit count:', err);
+      });
+  }
+</script>
 
     <script src="tooltips.js"></script>
     <script src="main.js"></script>
