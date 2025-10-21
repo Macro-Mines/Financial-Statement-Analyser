@@ -69,11 +69,33 @@ function calculateStatement() {
     document.getElementById('netProfit').value = netProfit;
 }
 
-
 // Optionally, auto-calculate on input change:
 document.querySelectorAll('input[type="number"]').forEach(input => {
     input.addEventListener('input', calculateStatement);
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+    // Clear default zero on focus and restore on blur for all income-statement numeric inputs
+    const incomeInputs = document.querySelectorAll('#income-statement input[type="number"]');
+    incomeInputs.forEach(el => {
+        el.addEventListener('focus', function () {
+            if (this.value === '0' || this.value === '0.00' || this.value === '0.0') {
+                this.value = '';
+            }
+            try { this.select(); } catch(e){ /* ignore */ }
+        });
+        el.addEventListener('blur', function () {
+            if (this.value === '' || this.value === null) {
+                this.value = 0;
+                this.dispatchEvent(new Event('input', { bubbles: true }));
+            } else {
+                this.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+        });
+    });
+});
+
+
 
 document.getElementById('analyseBtn').addEventListener('click', () => {
     // Hide income statement, show dashboard
@@ -183,6 +205,31 @@ function calculateBalanceSheet() {
     const totalAssets = totalFixed + totalCurrentAssets;
     document.getElementById('bsTotalAssets').value = totalAssets;
 }
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    // Clear default zero on focus and restore on blur for all balance-sheet numeric inputs
+    const bsInputs = document.querySelectorAll('#balance-sheet input[type="number"]');
+    bsInputs.forEach(el => {
+        el.addEventListener('focus', function () {
+            if (this.value === '0' || this.value === '0.00' || this.value === '0.0') {
+                this.value = '';
+            }
+            try { this.select(); } catch(e){ /* ignore */ }
+        });
+        el.addEventListener('blur', function () {
+            if (this.value === '' || this.value === null) {
+                this.value = 0;
+                this.dispatchEvent(new Event('input', { bubbles: true }));
+            } else {
+                this.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+        });
+    });
+});
+
+
 
 // Auto-calculate on input change
 document.querySelectorAll('#balance-sheet input[type="number"]').forEach(input => {
@@ -483,7 +530,49 @@ function calculateBankStatement() {
     document.getElementById('bankNetProfit').value = bankNetProfit;
 }
 
-// Add after calculateBankStatement()
+
+window.addEventListener('DOMContentLoaded', () => {
+    // Clear default zero on focus and restore on blur for all bank-statement numeric inputs
+    const bankInputs = document.querySelectorAll('#bank-statement input[type="number"]');
+    bankInputs.forEach(el => {
+        el.addEventListener('focus', function () {
+            if (this.value === '0' || this.value === '0.00' || this.value === '0.0') {
+                this.value = '';
+            }
+            try { this.select(); } catch(e){ /* ignore */ }
+        });
+        el.addEventListener('blur', function () {
+            if (this.value === '' || this.value === null) {
+                this.value = 0;
+                this.dispatchEvent(new Event('input', { bubbles: true }));
+            } else {
+                this.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+        });
+    });
+});
+
+// Bank reset: zero all numeric inputs in the bank-statement section and refresh calculations
+window.addEventListener('DOMContentLoaded', () => {
+    const bankReset = document.getElementById('bankResetBtn');
+    if (!bankReset) return;
+
+    bankReset.addEventListener('click', () => {
+        const inputs = document.querySelectorAll('#bank-statement input[type="number"]');
+        inputs.forEach(inp => {
+            inp.value = 0;
+            // notify listeners so calculators update
+            inp.dispatchEvent(new Event('input', { bubbles: true }));
+            inp.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+
+        // run bank calculations if present
+        try { if (typeof calculateBankStatement === 'function') calculateBankStatement(); } catch(e){ console.warn(e); }
+        try { if (typeof calculateBankPerformanceRatios === 'function') calculateBankPerformanceRatios(); } catch(e){ console.warn(e); }
+    });
+});
+
+
 
 function calculateBankPerformanceRatios() {
     // Get values from bank statement
@@ -492,10 +581,13 @@ function calculateBankPerformanceRatios() {
     const interestExpended = +document.getElementById('bankInterestExpended').value;
     const operatingExpenses = +document.getElementById('bankOperatingExpenses').value;
     const netInterestIncome = interestEarned - interestExpended;
+    const fixedAssets = +document.getElementById('fixedAssets').value;
+    const totalAssets = +document.getElementById('totalAssets').value;
     const totalIncome = interestEarned + otherIncome;
     const totalExpenses = interestExpended + operatingExpenses;
     const netProfit = totalIncome - totalExpenses;
 
+    const borrowings = +document.getElementById('bankBorrowings').value;
     const advances = +document.getElementById('advances').value;
     const investments = +document.getElementById('investments').value;
     const totalDeposits = +document.getElementById('totalDeposits').value;
@@ -545,6 +637,52 @@ function calculateBankPerformanceRatios() {
     // 8. Capital Adequacy Ratio (CAR)
     let car = riskWeightedAssets !== 0 ? (((capital + reserves) / riskWeightedAssets) * 100).toFixed(2) : "N/A";
     document.getElementById('capitalAdequacyRatio').textContent = car + (car !== "N/A" ? "%" : "");
+
+    // 9. Return on Investment (ROI)
+    let roi = investments !== 0 ? ((netProfit / investments) * 100).toFixed(2) : "N/A";
+    document.getElementById('returnOnInvestment').textContent = roi + (roi !== "N/A" ? "%" : "");
+
+    // 10. Return on Equity (ROE)
+    let equity = capital + reserves;
+    let roe = equity !== 0 ? ((netProfit / equity) * 100).toFixed(2) : "N/A";
+    document.getElementById('returnOnEquity').textContent = roe + (roe !== "N/A" ? "%" : "");
+
+    // 11. Return on Assets (ROA)
+    let roa = (totalAssets !== 0 && totalAssets) ? ((netProfit / totalAssets) * 100).toFixed(2) : "N/A";
+    document.getElementById('returnOnAssets').textContent = roa + (roa !== "N/A" ? "%" : "");
+
+    // 12. Return on Fixed Assets (ROFA)
+    let rofa = (fixedAssets !== 0 && fixedAssets) ? ((netProfit / fixedAssets) * 100).toFixed(2) : "N/A";
+    document.getElementById('returnOnFixedAssets').textContent = rofa + (rofa !== "N/A" ? "%" : "");
+
+    // 13. Return on Capital Employed (ROCE)
+    let capitalEmployed = equity + borrowings;
+    let roce = capitalEmployed !== 0 ? ((netProfit / capitalEmployed) * 100).toFixed(2) : "N/A";
+    document.getElementById('returnOnCapitalEmployed').textContent = roce + (roce !== "N/A" ? "%" : "");
+
+    // 14. No. of Equity Shares
+    const faceValue = +document.getElementById('faceValuePerShare').value;
+    let numberOfEquityShares = faceValue !== 0 ? Math.round(equity / faceValue) : "N/A";
+    document.getElementById('numberOfEquityShares').textContent = numberOfEquityShares;
+
+    // 15. Earnings Per Share (EPS)
+    let preferenceSharesDividends = +document.getElementById('preferenceSharesDividends').value;
+    let eps = numberOfEquityShares !== "N/A" && numberOfEquityShares !== 0 ? ((netProfit - preferenceSharesDividends) / numberOfEquityShares).toFixed(2) : "N/A";
+    document.getElementById('earningsPerShare').textContent = eps !== "N/A" ? eps : "N/A";
+
+    // 16. Price Earnings Ratio (P/E Ratio)
+    const marketPricePerShare = +document.getElementById('marketPricePerShare').value;
+    let peRatio = eps !== "N/A" && eps != 0 ? (marketPricePerShare / eps).toFixed(2) : "N/A";
+    document.getElementById('priceToEarningsRatio').textContent = peRatio !== "N/A" ? peRatio : "N/A";
+
+    // 17. Dividend Payout Ratio
+    const dividendsPaid = +document.getElementById('dividendsPaid').value;
+    let dividendPayoutRatio = eps !== 0 ? ((dividendsPaid / eps) * 100).toFixed(2) : "N/A";
+    document.getElementById('dividendPayoutRatio').textContent = dividendPayoutRatio + (dividendPayoutRatio !== "N/A" ? "%" : "");
+
+    // 18. Dividend Yield Ratio
+    let dividendYieldRatio = marketPricePerShare !== 0 ? ((dividendsPaid / marketPricePerShare) * 100).toFixed(2) : "N/A";
+    document.getElementById('dividendYield').textContent = dividendYieldRatio + (dividendYieldRatio !== "N/A" ? "%" : "");
 }
 
 // Show/hide dashboard on button click
@@ -698,6 +836,203 @@ document.getElementById('bank-button').addEventListener('click', () => {
     document.getElementById('bank-statement').scrollIntoView({behavior:"smooth"});
 });
 
+//marginal-button
+document.getElementById('marginal-button').addEventListener('click', () => {
+    document.getElementById('marginal-costing-section').style.display = 'block';
+    document.getElementById('marginal-dashboard').style.display = 'none';
+    document.getElementById('marginal-costing-section').scrollIntoView({behavior:"smooth"});
+});
+
+
+
+
+
+/* Marginal Costing */
+(function(){
+    const $ = id => document.getElementById(id);
+
+    function toNumber(v){ v = parseFloat(v); return isFinite(v) ? v : 0; }
+    function round2(n){ return Math.round((n + Number.EPSILON) * 100) / 100; }
+
+    function computeMarginalFromTotals(){
+        const units = toNumber( $('marg_totalUnits')?.value );
+        const salesTotal = toNumber( $('marg_sales_total')?.value );
+        const varTotal = toNumber( $('marg_variable_total')?.value );
+        const fixedTotal = toNumber( $('marg_fixed_total')?.value );
+
+        // Contribution and Profit (totals)
+        const contributionTotal = round2(salesTotal - varTotal);
+        const profitTotal = round2(contributionTotal - fixedTotal);
+
+        // Per-unit (if units > 0)
+        const salesPer = units > 0 ? round2(salesTotal / units) : 0;
+        const varPer = units > 0 ? round2(varTotal / units) : 0;
+        const contribPer = units > 0 ? round2(contributionTotal / units) : 0;
+        const fixedPer = units > 0 ? round2(fixedTotal / units) : 0;
+        const profitPer = units > 0 ? round2(profitTotal / units) : 0;
+
+        // Write readonly outputs
+        if ($('marg_sales_per')) $('marg_sales_per').value = salesPer;
+        if ($('marg_variable_per')) $('marg_variable_per').value = varPer;
+        if ($('marg_fixed_per')) $('marg_fixed_per').value = fixedPer;
+
+        if ($('marg_contribution_total')) $('marg_contribution_total').value = contributionTotal;
+        if ($('marg_contribution_per')) $('marg_contribution_per').value = contribPer;
+
+        if ($('marg_profit_total')) $('marg_profit_total').value = profitTotal;
+        if ($('marg_profit_per')) $('marg_profit_per').value = profitPer;
+    }
+
+    // Attach listeners to totals and units (user edits totals only)
+    window.addEventListener('DOMContentLoaded', () => {
+        const watch = [
+            'marg_totalUnits',
+            'marg_sales_total',
+            'marg_variable_total',
+            'marg_fixed_total'
+        ];
+        watch.forEach(id => {
+            const el = $(id);
+            if (!el) return;
+            el.addEventListener('input', computeMarginalFromTotals);
+        });
+
+        // Reset button
+        const resetBtn = $('marginalResetBtn');
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                const inputs = document.querySelectorAll('#marginal-costing-section input[type="number"]');
+                inputs.forEach(i => {
+                    i.value = 0;
+                    // dispatch input so calculations update
+                    i.dispatchEvent(new Event('input', { bubbles: true }));
+                });
+                // ensure compute runs after zeroing
+                computeMarginalFromTotals();
+            });
+        }
+
+        // initial compute
+        computeMarginalFromTotals();
+    });
+
+    // expose for debugging if needed
+    window.computeMarginalFromTotals = computeMarginalFromTotals;
+})();
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    // Enhance marginal inputs UX: clear default zero on focus, restore on blur, and select all
+    const editableIds = ['marg_totalUnits','marg_sales_total','marg_variable_total','marg_fixed_total'];
+    editableIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('focus', function () {
+            // If value is exactly zero, clear so user can type immediately
+            if (this.value === '0' || this.value === '0.00' || this.value === '0.0') {
+                this.value = '';
+            }
+            // select all for quick replace on some browsers
+            try { this.select(); } catch(e){/*ignore*/ }
+        });
+        el.addEventListener('blur', function () {
+            // If user leaves empty, restore zero
+            if (this.value === '' || this.value === null) {
+                this.value = 0;
+                // notify listeners so calculations update
+                this.dispatchEvent(new Event('input', { bubbles: true }));
+            } else {
+                // trigger input to recompute derived values after manual entry
+                this.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+        });
+    });
+});
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    const resetBtn = document.getElementById('marginalResetBtn');
+    if (!resetBtn) return;
+
+    resetBtn.addEventListener('click', () => {
+        const inputs = document.querySelectorAll('#marginal-costing-section input[type="number"]');
+        inputs.forEach(inp => {
+            inp.value = 0;
+            // notify any listeners
+            inp.dispatchEvent(new Event('input', { bubbles: true }));
+            inp.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+
+        // call known compute hooks if present
+        if (typeof window.computeMarginalFromTotals === 'function') {
+            try { window.computeMarginalFromTotals(); } catch (e) { console.warn(e); }
+        } else if (typeof window.marginalComputeAll === 'function') {
+            try { window.marginalComputeAll(); } catch (e) { console.warn(e); }
+        }
+    });
+});
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    // Analyse Marginal Sheet -> show Marginal Dashboard
+    const analyseMarginalBtn = document.getElementById('analyseMarginalCostingBtn');
+    const backMarginalBtn = document.getElementById('backMarginalDashboardBtn');
+    const marginalSection = document.getElementById('marginal-costing-section');
+    const marginalDashboard = document.getElementById('marginal-dashboard');
+
+    function safeNumber(id) {
+        const el = document.getElementById(id);
+        return el ? parseFloat(el.value || 0) : 0;
+    }
+
+    function formatNum(n, isPct = false) {
+        if (!isFinite(n)) return 'N/A';
+        return isPct ? `${n.toFixed(2)}%` : `${n.toFixed(2)}`;
+    }
+
+    if (analyseMarginalBtn) {
+        analyseMarginalBtn.addEventListener('click', () => {
+            // Ensure derived fields are up-to-date
+            if (typeof window.computeMarginalFromTotals === 'function') {
+                try { window.computeMarginalFromTotals(); } catch (e) { /* ignore */ }
+            }
+
+            const salesTotal = safeNumber('marg_sales_total');
+            const contributionTotal = safeNumber('marg_contribution_total');
+            const profitTotal = safeNumber('marg_profit_total');
+            const units = safeNumber('marg_totalUnits');
+
+            const contribPercent = salesTotal !== 0 ? (contributionTotal / salesTotal) * 100 : 0;
+            const contribPerUnit = units !== 0 ? (contributionTotal / units) : 0;
+            const profitMarginPerc = salesTotal !== 0 ? (profitTotal / salesTotal) * 100 : 0;
+
+            const elContribPct = document.getElementById('margContributionPercent');
+            const elContribPer = document.getElementById('margContributionPerUnit');
+            const elProfitPct = document.getElementById('margProfitMarginPercent');
+
+            if (elContribPct) elContribPct.textContent = formatNum(contribPercent, true);
+            if (elContribPer) elContribPer.textContent = formatNum(contribPerUnit, false);
+            if (elProfitPct) elProfitPct.textContent = formatNum(profitMarginPerc, true);
+
+            // show dashboard, hide input sheet
+            if (marginalSection) marginalSection.style.display = 'none';
+            if (marginalDashboard) marginalDashboard.style.display = 'block';
+            // scroll into view
+            if (marginalDashboard) marginalDashboard.scrollIntoView({behavior:"smooth"});
+        });
+    }
+
+    if (backMarginalBtn) {
+        backMarginalBtn.addEventListener('click', () => {
+            if (marginalDashboard) marginalDashboard.style.display = 'none';
+            if (marginalSection) marginalSection.style.display = 'block';
+            if (marginalSection) marginalSection.scrollIntoView({behavior:"smooth"});
+        });
+    }
+});
+
 
 
 
@@ -712,7 +1047,7 @@ function initParticles() {
             "opacity": { "value": 1 },
             "size": { "value": 3, "random": true },
             "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
-            "move": { "enable": true, "speed": 3, "out_mode": "out" }
+            "move": { "enable": true, "speed": 1, "out_mode": "out" }
         },
         "interactivity": {
             "detect_on": "canvas",
@@ -725,4 +1060,71 @@ function initParticles() {
 
 window.addEventListener('DOMContentLoaded', () => {
     initParticles();
+});
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Use Web Audio API so sound plays reliably after a user gesture
+  let audioCtx = null;
+  let unlocked = false;
+
+  function ensureAudioUnlocked() {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === 'suspended') return audioCtx.resume().then(() => unlocked = true).catch(()=>{unlocked=false;});
+    unlocked = true;
+    return Promise.resolve();
+  }
+
+  function playTone(freq = 800, duration = 0.08, type = 'sine', volume = 0.12) {
+    try {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const now = audioCtx.currentTime;
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.type = type;
+      o.frequency.setValueAtTime(freq, now);
+      g.gain.setValueAtTime(volume, now);
+      g.gain.exponentialRampToValueAtTime(0.001, now + duration);
+      o.connect(g);
+      g.connect(audioCtx.destination);
+      o.start(now);
+      o.stop(now + duration + 0.02);
+    } catch (e) {
+      // fail silently if AudioContext unavailable
+      console.warn('playTone failed', e);
+    }
+  }
+
+  // Unlock audio on first pointerdown/touchstart (most reliable)
+  const unlockHandler = () => {
+    ensureAudioUnlocked().then(() => {
+      // small silent tone to unlock on some platforms
+      playTone(880, 0.02, 'sine', 0.0001);
+    }).finally(() => {
+      document.removeEventListener('pointerdown', unlockHandler);
+      document.removeEventListener('touchstart', unlockHandler);
+    });
+  };
+  document.addEventListener('pointerdown', unlockHandler, { once: true });
+  document.addEventListener('touchstart', unlockHandler, { once: true });
+
+  // Attach to all buttons (use delegated set to .button)
+  document.querySelectorAll(".button").forEach(btn => {
+    // hover: light soft tone (only play if audio unlocked to avoid promise rejections)
+    btn.addEventListener("mouseenter", () => {
+      if (audioCtx && (audioCtx.state === 'running' || unlocked)) {
+        playTone(650, 0.06, 'sine', 0.06);
+      }
+    });
+
+    // click: sharper tone (user gesture — allowed)
+    btn.addEventListener("click", (ev) => {
+      // ensure context resumed and then play
+      ensureAudioUnlocked().then(() => playTone(1100, 0.08, 'triangle', 0.12)).catch(()=>{/*ignore*/});
+    });
+  });
 });

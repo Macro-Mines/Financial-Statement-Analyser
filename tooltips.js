@@ -1,7 +1,7 @@
 // financial-analysis-website/src/js/tooltips.js
 // Tooltips for various elements using Tippy.js
 tippy.setDefaultProps({
-    theme: 'light',
+    theme: 'translucent',
     animation: 'shift-away',
     allowHTML: true,
     delay: 100,
@@ -26,6 +26,13 @@ tippy('#balance-button', {
 // Buttons Tooltips
 tippy('#bank-button', {
         content: '<strong>Bank Statement</strong>',
+        placement: 'left',
+        followCursor: 'vertical',
+});
+
+//marginal-button Tooltips
+tippy('#marginal-button', {
+        content: '<strong>Marginal Costing</strong>',
         placement: 'left',
         followCursor: 'vertical',
 });
@@ -222,7 +229,7 @@ tippy('#total_indirect_tip', {
 });
 
 //credit_tip
-tippy('#credit_tip', {
+tippy('#pl_credit_tip', {
         content: '<strong>Credit (Cr.)</strong> : The side of the Profit & Loss Account that records all income and gains earned by the business during a specific period.',
 });
 
@@ -278,6 +285,11 @@ tippy('#liabilities_equity_tip', {
         content: '<strong>Liabilities & Equity</strong> : The section of the balance sheet that lists a company\'s obligations (liabilities) and the residual interest of the owners (equity) at a specific point in time.',
 });
 
+//capital_and_reserves_tip
+tippy('#capital_and_reserves_tip', {
+        content: '<strong>Capital & Reserves</strong> : The section of the balance sheet that shows the owner\'s equity in the business, including initial capital invested and retained earnings.',
+});
+
 //capital_tip
 tippy('#capital_tip', {
         content: '<strong>Capital</strong> : The financial resources that a business uses to fund its operations and growth, typically represented by the owner\'s equity in the business.',
@@ -311,6 +323,17 @@ tippy('#secured_loans_tip', {
 // unsecured_loans_tip
 tippy('#unsecured_loans_tip', {
         content: '<strong>Unsecured Loans</strong> : Loans that are not backed by collateral, relying solely on the borrower\'s creditworthiness, typically carrying higher interest rates due to increased risk for the lender.',
+});
+
+
+// long_term_loans_tip
+tippy('#long_term_loans_tip', {
+        content: '<strong>Long-term Loans</strong> : Loans that are due for repayment over a period longer than one year, used to finance long-term investments and classified as non-current liabilities on the balance sheet.',
+});
+
+// current_liabilities_tip
+tippy('#current_liabilities_tip', {
+        content: '<strong>Current Liabilities</strong> : Short-term financial obligations that are due within one year, including accounts payable, short-term loans, and other similar debts.',
 });
 
 // creditors_tip
@@ -362,6 +385,11 @@ tippy('#bsTotalCurrentLiab', {
 // assets_tip
 tippy('#assets_tip', {
         content: '<strong>Assets</strong> : Resources owned by a company that have economic value and can provide future benefits, classified as current or non-current based on their liquidity.',
+});
+
+// fixed_assets_tip
+tippy('#fixed_assets_tip', {
+        content: '<strong>Fixed Assets</strong> : Long-term tangible assets owned by a company, such as land, buildings, and machinery, that are used in the production of goods and services.',
 });
 
 //land_buildings_tip
@@ -811,5 +839,125 @@ tippy('#loans_to_deposits_ratio_tip', {
 //capital_adequacy_ratio_tip
 tippy('#capital_adequacy_ratio_tip', {
         content: '<strong>Capital Adequacy Ratio</strong> : A financial metric that indicates the proportion of a bank\'s capital to its risk-weighted assets, calculated as (Total Capital / Risk-Weighted Assets) * 100, reflecting the bank\'s ability to absorb losses and maintain solvency.',
+});
+
+
+// credit_risk_rwa_tip
+tippy('#credit_risk_tip', {
+        content: '<strong>Credit Risk RWA</strong> : A financial metric that indicates the risk-weighted assets associated with a bank\'s credit exposure, calculated as (Credit Risk Exposure * Risk Weight).',
+});
+
+// market_risk_rwa_tip
+tippy('#market_risk_tip', {
+        content: '<strong>Market Risk RWA</strong> : A financial metric that indicates the risk-weighted assets associated with a bank\'s market exposure, calculated as (Market Risk Exposure * Risk Weight).',
+});
+
+// operational_risk_rwa_tip
+tippy('#operational_risk_tip', {
+        content: '<strong>Operational Risk RWA</strong> : A financial metric that indicates the risk-weighted assets associated with a bank\'s operational risk exposure, calculated as (Operational Risk Exposure * Risk Weight).',
+});
+
+
+// return_on_investment_tip
+tippy('#return_on_investment_tip', {
+        content: '<strong>Return on Investment (ROI)</strong> : A financial metric that measures the profitability of a bank\'s investments, calculated as (Net Profit from Investments / Total Investments) * 100, indicating the efficiency of investment strategies.',
+});
+
+//return_on_equity_tip
+tippy('#return_on_equity_tip', {
+        content: '<strong>Return on Equity (ROE)</strong> : A financial metric that measures the profitability of a bank in relation to its shareholders\' equity, calculated as (Net Profit / Shareholders\' Equity) * 100, indicating how effectively the bank is using equity financing to generate profits.',
+});
+
+//return_on_assets_tip
+tippy('#return_on_assets_tip', {
+        content: '<strong>Return on Assets (ROA)</strong> : A financial metric that measures the profitability of a bank in relation to its total assets, calculated as (Net Profit / Total Assets) * 100, indicating how effectively the bank is using its assets to generate profits.',
+});
+
+//return_on_fixed_assets_tip
+tippy('#return_on_fixed_assets_tip', {
+        content: '<strong>Return on Fixed Assets (ROFA)</strong> : A financial metric that measures the profitability of a bank in relation to its fixed assets, calculated as (Net Profit / Fixed Assets) * 100, indicating how effectively the bank is using its fixed assets to generate profits.',
+});
+
+//return_on_capital_employed_tip
+tippy('#return_on_capital_employed_tip', {
+        content: '<strong>Return on Capital Employed (ROCE)</strong> : A financial metric that measures the profitability of a bank in relation to its capital employed, calculated as (Earnings Before Interest and Taxes (EBIT) / Capital Employed) * 100, indicating how effectively the bank is using its capital to generate profits.',
+});
+
+// number_of_equity_shares_tip
+tippy('#number_of_equity_shares_tip', {
+        content: '<strong>Number of Equity Shares</strong> : The total number of shares issued by a company that are held by shareholders, indicating the ownership structure and potential dilution of equity.',
+});
+
+// face_value_per_share_tip
+tippy('#face_value_per_share_tip', {
+        content: '<strong>Face Value per Share</strong> : The nominal or par value of a company\'s share as stated in the corporate charter, representing the minimum price at which shares can be issued.',
+});
+
+// earning_per_share_tip
+tippy('#earning_per_share_tip', {
+        content: '<strong>Earnings Per Share (EPS)</strong> : A financial metric that indicates the portion of a company\'s profit allocated to each outstanding share of common stock, calculated as (Net Profit - Dividends on Preferred Stock) / Average Outstanding Shares.',
+});
+
+// preference_shares_dividends_tip
+tippy('#preference_shares_dividends_tip', {
+        content: '<strong>Preference Shares Dividends</strong> : The dividends paid to preference shareholders, calculated as (Preference Shares Outstanding * Dividend Rate), indicating the cost of equity for preference shares.',
+});
+
+// price_to_earnings_ratio_tip
+tippy('#price_to_earnings_ratio_tip', {
+        content: '<strong>Price to Earnings (P/E) Ratio</strong> : A financial metric that measures a company\'s current share price relative to its earnings per share, calculated as Market Value per Share / Earnings per Share, indicating investor expectations and valuation.',
+});
+
+// market_price_per_share_tip
+tippy('#market_price_per_share_tip', {
+        content: '<strong>Market Price per Share</strong> : The current trading price of a company\'s share in the stock market, reflecting investor sentiment and market conditions.',
+});
+
+// dividend_payout_ratio_tip
+tippy('#dividend_payout_ratio_tip', {
+        content: '<strong>Dividend Payout Ratio</strong> : A financial metric that indicates the proportion of earnings paid out as dividends to shareholders, calculated as Dividends per Share / Earnings per Share, reflecting the company\'s dividend policy and profitability.',
+});
+
+// dividends_paid_per_share_tip
+tippy('#dividends_paid_per_share_tip', {
+        content: '<strong>Dividends Paid per Share</strong> : The total dividends distributed to shareholders for each outstanding share, calculated as Total Dividends Paid / Total Outstanding Shares, indicating the return on investment for shareholders.',
+});
+
+// dividend_yield_tip
+tippy('#dividend_yield_tip', {
+        content: '<strong>Dividend Yield</strong> : A financial metric that indicates the annual dividend income received by shareholders as a percentage of the market price per share, calculated as (Dividends per Share / Market Price per Share) * 100, reflecting the return on investment from dividends.',
+});
+
+
+
+//marginal_costing_tip
+tippy('#marginal_costing_tip', {
+        content: '<strong>Marginal Costing</strong> : A costing technique that considers only variable costs (direct materials, direct labor, and variable overhead) for decision-making, while fixed costs are treated as period costs and not allocated to specific products or services.',
+});
+
+//marg_sales_tip
+tippy('#marg_sales_tip', {
+        content: '<strong>Marginal Sales</strong> : A financial metric that evaluates the additional revenue generated from selling one more unit of a product, calculated as (Change in Revenue / Change in Quantity), indicating the contribution of each unit sold to overall profitability.',
+});
+
+//marg_variable_cost_tip
+tippy('#marg_variable_cost_tip', {
+        content: '<strong>Marginal Variable Cost</strong> : The additional cost incurred for producing one more unit of a product, calculated as (Change in Total Variable Costs / Change in Quantity), indicating the cost behavior of variable inputs.',
+});
+
+//marg_contribution_tip
+tippy('#marg_contribution_tip', {
+        content: '<strong>Marginal Contribution</strong> : A financial metric that represents the difference between sales revenue and variable costs for one additional unit sold, calculated as (Marginal Sales - Marginal Variable Cost), indicating the contribution of each unit to covering fixed costs and generating profit.',
+});
+
+
+//marg_fixed_cost_tip
+tippy('#marg_fixed_cost_tip', {
+        content: '<strong>Marginal Fixed Cost</strong> : The additional cost incurred for maintaining fixed costs when producing one more unit of a product, indicating the impact of fixed costs on overall profitability.',
+});
+
+//marg_profit_tip
+tippy('#marg_profit_tip', {
+        content: '<strong>Marginal Profit</strong> : A financial metric that represents the additional profit generated from selling one more unit of a product, calculated as (Marginal Contribution - Marginal Fixed Cost), indicating the profitability of each additional unit sold.',
 });
 
