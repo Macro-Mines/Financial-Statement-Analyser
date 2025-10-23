@@ -1112,8 +1112,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener('pointerdown', unlockHandler, { once: true });
   document.addEventListener('touchstart', unlockHandler, { once: true });
 
-  // Attach to all buttons (use delegated set to .button)
-  document.querySelectorAll(".button").forEach(btn => {
+  // Attach to all buttons (use delegated set to button and .button)
+  document.querySelectorAll("button, .button").forEach(btn => {
     // hover: light soft tone (only play if audio unlocked to avoid promise rejections)
     btn.addEventListener("mouseenter", () => {
       if (audioCtx && (audioCtx.state === 'running' || unlocked)) {

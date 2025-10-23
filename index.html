@@ -5,7 +5,7 @@
     <!-- Force desktop viewport and show message on small screens -->
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Financial Statement Analysis</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css"/>
 </head>
 <body>
     <div id="particles-js" aria-hidden="true"></div>
@@ -43,14 +46,20 @@
         </div>
     </div>
     
-    <header>
+    <header> 
+
     <img src="dollar.png" alt="Financial Analysis Logo" id="logo">
     <h1><span id="web_name_tip">Financial Statement Analysis</span></h1>
     <div class="subtitle"><span id="subtitle_tip">Made by Abhinav Raj (MBA F.T)</span></div>
+    <!-- <button id="tour" onclick="driverObj.drive()" class="button"><span id="take_tour_tip">Take a Tour</span></button> -->
+    <!-- Tour Button -->
+    <button id="tour" onclick="driverObj.drive()" class="button">Take a Tour</button>
     </header>
 
+
+    
     <main>
-        <section id="income-statement" style="margin-top:5rem;">
+        <section id="income-statement" style="margin-top:20rem;">
             <img src="savings.png" alt="Income" style="display:block; margin: 2rem auto 0 auto; width: 150px; height: 150px;">
             <h2 style="text-align:center; font-size: 4rem; color: #fffde7; margin-top: 0.5rem;"><span id="income_statement_tip">Income Statement</span></h2>
             <div class="t-account-container">
@@ -179,8 +188,23 @@
                     </div>
                 </div>
             </div>
-            <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem;">
-                <button id="analyseBtn" class="button">Analyse Income Statement</button>
+
+            <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 4rem;">
+                <!-- <button id="analyseBtn" class="button">Analyse Income Statement</button> -->
+                <button id="analyseBtn" class="animated-button">
+                <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    ></path>
+                </svg>
+                <span class="text">Analyse Income Statement</span>
+                <span class="circle"></span>
+                <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    ></path>
+                </svg>
+                </button>
             </div>
         </section>
         <!-- dashboard page -->
@@ -242,9 +266,28 @@
                     <div id="dashNetProfitRatioAnalysis" class="dashboard-analysis"></div>
                 </div>
             </div>
-            <div style="text-align:center; margin:2rem;">
-                <button id="backBtn" class="button">Back</button>
+            <div style="text-align:center; margin-top:6rem;">
+                <!-- <button id="backBtn" class="button">Back</button> -->
+                <button id="backBtn" class="back-button">
+                    <div class="back-button-box">
+                        <span class="back-button-elem">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                            ></path>
+                        </svg>
+                        </span>
+                        <span class="back-button-elem">
+                        <svg viewBox="0 0 46 40">
+                            <path
+                            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                            ></path>
+                        </svg>
+                        </span>
+                    </div>
+                </button>
             </div>
+
         </section>
         
         <section id="balance-sheet" style="margin-top:10rem;">
@@ -356,8 +399,22 @@
                     </div>
                 </div>
             </div>
-            <div style="display: flex; justify-content: center; margin-top: 2rem; margin-bottom: 5rem;">
-                <button id="analyseBalanceSheetBtn" class="button">Analyse Balance Sheet</button>
+            <div style="display: flex; justify-content: center; margin-top: 5rem; margin-bottom: 15rem;">
+                <!-- <button id="analyseBalanceSheetBtn" class="button">Analyse Balance Sheet</button> -->
+                <button id="analyseBalanceSheetBtn" class="animated-button">
+                <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    ></path>
+                </svg>
+                <span class="text">Analyse Balance Sheet</span>
+                <span class="circle"></span>
+                <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    ></path>
+                </svg>
+                </button>
             </div>
         </section>
 
@@ -488,8 +545,26 @@
                     <div class="turnover-value" id="avgAgeInventoryValue"></div>
                 </div>
             </div>
-            <div style="text-align:center; margin:2rem;">
-                <button id="backLiquidityBtn" class="button">Back</button>
+            <div style="text-align:center; margin-top:6rem;">
+                <!-- <button id="backLiquidityBtn" class="button">Back</button> -->
+                 <button id="backLiquidityBtn" class="back-button">
+                    <div class="back-button-box">
+                        <span class="back-button-elem">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                            ></path>
+                        </svg>
+                        </span>
+                        <span class="back-button-elem">
+                        <svg viewBox="0 0 46 40">
+                            <path
+                            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                            ></path>
+                        </svg>
+                        </span>
+                    </div>
+                </button>
             </div>
         </section>
 
@@ -499,7 +574,7 @@
             <h2 style="text-align:center; font-size: 4rem; color: #fffde7;"><span id="bank_financial_statement_tip"> Bank Financial Statement</span></h2>
             <div class="bank-statement-frame">
                 <!-- Liabilities & Capital -->
-                <div class="bank-category">
+                <div id="bank-liabilities-capital-section" class="bank-category">
                     <div class="bank-category-title">
                         <span id="liabilities_capital_tip">Liabilities & Capital</span>
                     </div>
@@ -573,7 +648,7 @@
                 </div>
         
                 <!-- Assets -->
-                <div class="bank-category">
+                <div id="bank-assets-section" class="bank-category">
                     <div class="bank-category-title">
                         <span id="bank_assets_tip">Assets</span>
                     </div>
@@ -638,7 +713,7 @@
                     </div>
                 </div>
                                 
-                <div class="bank-category">
+                <div id="bank-income-statement-section" class="bank-category">
                     <div class="bank-category-title">
                         <span id="bank_income_statement_tip">Income Statement</span>
                     </div>
@@ -690,7 +765,7 @@
                 <div class="export-buttons" style="display: flex; justify-content: center; align-items: center; margin-bottom:1rem; gap:0.5rem;">
                     <button id="exportPDFBtn" class="button" style="display: flex; background-color: #11011e28;align-items: center; gap: 0.5em;">
                         <span id="download_bank_report_tip">PDF</span>
-                        <!-- Download SVG Icon -->
+                        
                         <svg id="downloadPdfIcon" width="22" height="22" viewBox="0 0 22 22" fill="none" style="vertical-align:middle;">
                             <circle cx="11" cy="11" r="11" fill="#fff" opacity="0.12"/>
                             <path d="M11 5v8m0 0l-3-3m3 3l3-3m-8 6h10" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -706,8 +781,22 @@
                 </button>
             </div>
             
-            <div style="display: flex; justify-content: center; margin-top: 2rem; margin-bottom: 5rem;">
-                <button id="analyseBankBtn" class="button">Analyse Bank Performance</button>
+            <div style="display: flex; justify-content: center; margin-top: 5rem; margin-bottom: 15rem;">
+                <!-- <button id="analyseBankBtn" class="button">Analyse Bank Performance</button> -->
+                 <button id="analyseBankBtn" class="animated-button">
+                <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    ></path>
+                </svg>
+                <span class="text">Analyse Bank Performance</span>
+                <span class="circle"></span>
+                <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    ></path>
+                </svg>
+                </button>
             </div>
         </section>
 
@@ -914,15 +1003,34 @@
                 </div>
 
             </div>
-            <div style="text-align:center; margin:2rem;">
-                <button id="backBankPerformanceBtn" class="button">Back</button>
+            <div style="text-align:center; margin:6rem;">
+                <!-- <button id="backBankPerformanceBtn" class="button">Back</button> -->
+                <button id="backBankPerformanceBtn" class="back-button">
+                    <div class="back-button-box">
+                        <span class="back-button-elem">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                            ></path>
+                        </svg>
+                        </span>
+                        <span class="back-button-elem">
+                        <svg viewBox="0 0 46 40">
+                            <path
+                            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                            ></path>
+                        </svg>
+                        </span>
+                    </div>
+                </button>
             </div>
         </section>
 
 
         <!-- Marginal Costing -->
-        <section id="marginal-costing-section" style="margin-top:10rem;">
-                    <h2 style="text-align:center; font-size: 4rem; color: #fffde7;"><span id="marginal_costing_tip">Marginal Costing Analysis</span></h2>
+        <section id="marginal-costing-section" style="margin-top:15rem;">
+            
+            <h2 style="text-align:center; font-size: 4rem; color: #fffde7;"><span id="marginal_costing_tip">Marginal Costing Analysis</span></h2>
         
             <div class="marginal-sheet-frame" style="margin:2rem auto; max-width:920px;">
                         
@@ -997,7 +1105,16 @@
 
         <!-- Marginal Costing Dashboard -->
         <section id="marginal-dashboard" style="display:none; margin-top: 10rem;">
-            <h2 style="text-align:center; font-size: 4rem; color: #fffde7;"><span id="marginal_dashboard_tip">Marginal Costing Ratios</span></h2>
+            <div class="pyramid-loader">
+            <div class="wrapper">
+                <span class="side side1"></span>
+                <span class="side side2"></span>
+                <span class="side side3"></span>
+                <span class="side side4"></span>
+                <span class="shadow"></span>
+            </div>  
+            </div>
+            <h2 style="text-align:center; font-size: 4rem; color: #fffde7; margin-top: 0;"><span id="marginal_dashboard_tip">Marginal Costing Ratios</span></h2>
 
             <div class="dashboard-grid" style="margin-top:2rem; max-width:1000px;">
                 <div class="dashboard-card">
@@ -1019,11 +1136,32 @@
                 </div>
             </div>
 
-            <div style="text-align:center; margin:2rem;">
-                <button id="backMarginalDashboardBtn" class="button">Back</button>
+            <div style="text-align:center; margin:4rem;">
+                <!-- <button id="backMarginalDashboardBtn" class="button">Back</button> -->
+                 <button id="backMarginalDashboardBtn" class="back-button">
+                    <div class="back-button-box">
+                        <span class="back-button-elem">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                            ></path>
+                        </svg>
+                        </span>
+                        <span class="back-button-elem">
+                        <svg viewBox="0 0 46 40">
+                            <path
+                            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                            ></path>
+                        </svg>
+                        </span>
+                    </div>
+                </button>
             </div>
         </section>
         
+
+
+
 
 
 
@@ -1053,7 +1191,8 @@
         <p style="text-align:center; margin-bottom:10px;">&copy; 2025 Financial Analysis Website. All rights reserved.</p>
     </footer>
 
-    <script src="tooltips.js"></script>
-    <script src="main.js"></script>
+    <script src="js/tooltips.js"></script>
+    <script src="js/driver.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
