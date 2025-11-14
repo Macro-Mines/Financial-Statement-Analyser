@@ -961,3 +961,34 @@ tippy('#marg_profit_tip', {
         content: '<strong>Marginal Profit</strong> : A financial metric that represents the additional profit generated from selling one more unit of a product, calculated as (Marginal Contribution - Marginal Fixed Cost), indicating the profitability of each additional unit sold.',
 });
 
+
+
+
+//contribution_percent_tip
+tippy('#contribution_percent_tip', {
+        content: '<strong>Contribution Percentage</strong> : A financial metric that indicates the proportion of sales revenue that contributes to covering fixed costs and generating profit, calculated as (Contribution / Sales) * 100, reflecting the efficiency of cost management and pricing strategies.',
+});
+
+
+//contrib_per_unit_tip
+tippy('#contrib_per_unit_tip', {
+        content: '<strong>Contribution per Unit</strong> : A financial metric that represents the amount each unit sold contributes to covering fixed costs and generating profit, calculated as (Selling Price per Unit - Variable Cost per Unit), indicating the profitability of individual products.',
+});
+
+
+//profit_margin_percent_tip
+tippy('#profit_margin_percent_tip', {
+        content: '<strong>Profit Margin Percentage</strong> : A financial metric that indicates the proportion of sales revenue that remains as profit after all expenses have been deducted, calculated as (Net Profit / Sales) * 100, reflecting overall profitability.',
+});
+
+
+//break_even_point_tip
+tippy('#break_even_point_tip', {
+        content: '<strong>Break-Even Point</strong> : A financial metric that indicates the level of sales at which total revenue equals total costs, resulting in neither profit nor loss, calculated as Fixed Costs / Contribution per Unit, reflecting the minimum sales required to cover all expenses.',
+});
+
+
+// margin_of_safety_tip
+tippy('#margin_of_safety_tip', {
+        content: '<strong>Margin of Safety</strong> : A financial metric that indicates the difference between actual sales and break-even sales, calculated as (Actual Sales - Break-Even Sales), reflecting the cushion available before a company incurs losses.',
+});

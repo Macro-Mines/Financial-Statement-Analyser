@@ -5,7 +5,7 @@
     <!-- Force desktop viewport and show message on small screens -->
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Financial Statement Analysis</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
@@ -1077,6 +1077,12 @@
                                 <div class="col col-total"><input type="number" id="marg_profit_total" value="0" readonly></div>
                                 <div class="col col-unit"><input type="number" id="marg_profit_per" value="0" readonly></div>
                             </div>
+
+                            <div class="marginal-row result" style="margin-top:0.6rem; text-align:center;">
+                            <label for="marg_desired_profit" style="display:block; font-weight:600; margin-bottom:0.3rem;">Desired Profit</label>
+                            <input type="number" id="marg_desired_profit" value="0" step="any" min="0"
+                                style="width:90%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.03); color:#fff; font-family:'Fira Mono', monospace; font-weight:600; margin-bottom: 0.5rem;">
+                            </div>
                         </div>
         
                     
@@ -1116,7 +1122,7 @@
             </div>
             <h2 style="text-align:center; font-size: 4rem; color: #fffde7; margin-top: 0;"><span id="marginal_dashboard_tip">Marginal Costing Ratios</span></h2>
 
-            <div class="dashboard-grid" style="margin-top:2rem; max-width:1000px;">
+            <div class="dashboard-grid" style="margin-top:2rem;">
                 <div class="dashboard-card">
                     <h3><span id="contribution_percent_tip">Contribution % (Profit/Volume Ratio)</span></h3>
                     <div id="margContributionPercent" class="dashboard-value">0%</div>
@@ -1134,6 +1140,30 @@
                     <div id="margProfitMarginPercent" class="dashboard-value">0%</div>
                     <div class="formula">Profit % = (Profit ÷ Sales) × 100</div>
                 </div>
+
+                <!-- Break Even Point Analysis -->
+                <div class="dashboard-card">
+                    <h3><span id="break_even_point_tip">Break Even Point (BEP)</span></h3>
+                    <div id="margBreakEvenUnits" class="dashboard-value">0 Units</div>
+                    <div class="formula">BEP (Units) = Fixed Costs ÷ Contribution per unit</div>
+                </div>
+
+                <!-- Margin of Safety -->
+                <div class="dashboard-card">
+                    <h3><span id="margin_of_safety_tip">Margin of Safety (MoS)</span></h3>
+                    <div id="margMarginOfSafety" class="dashboard-value">0 Units</div>
+                    <div class="formula">MoS (Units) = Total Sales Units - Break Even Sales Units</div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3><span id="required_sales_for_desired_profit_tip">Required Sales for Desired Profit</span></h3>
+                    <div id="margRequiredSales" class="dashboard-value">0</div>
+                    <div class="formula">
+                        Required Sales = [(Fixed Cost + Desired Profit) ÷ PV Ratio] x 100
+                    </div>
+                </div>
+
+
             </div>
 
             <div style="text-align:center; margin:4rem;">
@@ -1185,14 +1215,14 @@
     </main>
     <footer>
         <div style="text-align:center; margin-top: 20em;">
-            <p>Total Visits : <span id="count">  <a href='http://www.freevisitorcounters.com'>free counter</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=f3fbae2962edfa4b4cd3c17fc1b77bff0ad259e7'></script>
-<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1422948/t/5"></script></span></p>
+            <p>Total Visits : <span id="count"> <a href='http://www.freevisitorcounters.com'>more on freevisitorcounters.com</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=3facaa6aa4841f3d7c57e310ccd0b7e5c012739d'></script>
+<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1415756/t/5"></script></span></p>
         </div>
         <p style="text-align:center; margin-bottom:10px;">&copy; 2025 Financial Analysis Website. All rights reserved.</p>
     </footer>
 
-    <script src="tooltips.js"></script>
-    <script src="driver.js"></script>
-    <script src="main.js"></script>
+    <script src="js/tooltips.js"></script>
+    <script src="js/driver.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

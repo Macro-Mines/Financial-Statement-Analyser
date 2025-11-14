@@ -1003,18 +1003,38 @@ window.addEventListener('DOMContentLoaded', () => {
             const contributionTotal = safeNumber('marg_contribution_total');
             const profitTotal = safeNumber('marg_profit_total');
             const units = safeNumber('marg_totalUnits');
+            const fixedTotal = safeNumber('marg_fixed_total');
+            const contributionPerUnit = units !== 0 ? contributionTotal / units : 0;
+            const desiredprofit = safeNumber('marg_desired_profit');
 
             const contribPercent = salesTotal !== 0 ? (contributionTotal / salesTotal) * 100 : 0;
             const contribPerUnit = units !== 0 ? (contributionTotal / units) : 0;
             const profitMarginPerc = salesTotal !== 0 ? (profitTotal / salesTotal) * 100 : 0;
+            const breakEvenUnits = contributionPerUnit !== 0 ? (fixedTotal / contributionPerUnit) : 0;
+
+            // Margin of Safety
+            const marginOfSafety = salesTotal !== 0 ? ((salesTotal - breakEvenUnits) / salesTotal) * 100 : 0;
+            
+            // Required Sales = [(Fixed Cost + Desired Profit) ÷ PV Ratio] x 100
+            const requiredSales =contribPercent !== 0 ? ((fixedTotal + desiredprofit) / contribPercent) * 100 : 0;
+
+           
+
+            
 
             const elContribPct = document.getElementById('margContributionPercent');
             const elContribPer = document.getElementById('margContributionPerUnit');
             const elProfitPct = document.getElementById('margProfitMarginPercent');
+            const elBreakEvenUnits = document.getElementById('margBreakEvenUnits');
+            const elMarginOfSafety = document.getElementById('margMarginOfSafety');
+            const elRequiredSales = document.getElementById('margRequiredSales');
 
             if (elContribPct) elContribPct.textContent = formatNum(contribPercent, true);
             if (elContribPer) elContribPer.textContent = formatNum(contribPerUnit, false);
             if (elProfitPct) elProfitPct.textContent = formatNum(profitMarginPerc, true);
+            if (elBreakEvenUnits) elBreakEvenUnits.textContent = formatNum(breakEvenUnits, false);
+            if (elMarginOfSafety) elMarginOfSafety.textContent = formatNum(marginOfSafety, true);
+            if (elRequiredSales) elRequiredSales.textContent = formatNum(requiredSales, false);
 
             // show dashboard, hide input sheet
             if (marginalSection) marginalSection.style.display = 'none';
